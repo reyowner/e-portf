@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
       "Participated in code reviews and team meetings",
       "Ensured responsive design across devices",
     ],
-    technologies: ["React.js", "Next.js", "Figma", "API Integration", "Agile/Scrum"],
+    technologies: ["React.js", "Next.js", "Figma to Code", "API Integration", "Agile/Scrum"],
     professional: true,
   }
 

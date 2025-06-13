@@ -19,7 +19,7 @@ const Experience: React.FC = () => {
         "Gained valuable hands-on experience in real-world software development",
         "Improved technical proficiency, problem-solving skills, and team communication",
       ],
-      technologies: ["React.js", "Next.js", "FastAPI", "Python", "Figma", "Git", "Agile Development"],
+      technologies: ["React.js", "Next.js", "FastAPI", "Python", "Figma to Code", "Git", "Agile Development"],
     },
     {
       title: "Bachelor of Science in Information Technology",

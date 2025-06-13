@@ -28,13 +28,13 @@ const About: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
             <div className="prose prose-lg max-w-none">
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="mb-4 text-gray-600 dark:text-gray-400 leading-relaxed text-justify">
                 My journey in technology began with my STEM education at Thy Covenant Montessori School in Taguig City,
                 which provided a strong foundation in analytical thinking and problem-solving. This early exposure to
                 structured learning environments shaped my approach to tackling complex challenges systematically.
               </p>
 
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="mb-4 text-gray-600 dark:text-gray-400 leading-relaxed text-justify">
                 During my internship as a Full Stack Software Engineer at Oaktree Innovations (March 2025 - May 2025),
                 I gained invaluable hands-on experience working in a fully remote, agile development environment. I
                 contributed to real client projects including the PREDIKTA Marketing App for Netopia AI, where I
@@ -43,7 +43,7 @@ const About: React.FC = () => {
                 comprehensive task management web application.
               </p>
 
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="mb-4 text-gray-600 dark:text-gray-400 leading-relaxed text-justify">
                 What drives me most is user-centered thinking and problem-solving. I&apos;ve proven my ability to adapt
                 in fast-paced environments while working both independently and collaboratively in teams. With my recent
                 BS Information Technology degree and professional development experience, I&apos;m eager to contribute
