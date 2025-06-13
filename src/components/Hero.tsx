@@ -6,7 +6,7 @@ import { Download, Mail, Github, Linkedin } from "lucide-react"
 
 const Hero: React.FC = () => {
   const [typedText, setTypedText] = useState("")
-  const roles = ["Full Stack Software Developer", "BS Information Technology", "Problem Solver"]
+  const roles = ["Developer", "BS Information Technology", "Problem Solver", "Adaptable"]
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
 
