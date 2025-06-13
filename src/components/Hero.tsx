@@ -1,12 +1,16 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { Download, Mail, Github, Linkedin } from "lucide-react"
 
 const Hero: React.FC = () => {
   const [typedText, setTypedText] = useState("")
-  const roles = ["Developer", "BS Information Technology", "Problem Solver", "Adaptable"]
+  const roles = useMemo(() => [
+    "Full Stack Software Developer",
+    "BS Information Technology",
+    "Problem Solver"
+  ], []);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
 
