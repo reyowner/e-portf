@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react"
+import emailjs from "emailjs-com"
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -51,12 +52,35 @@ const Contact: React.FC = () => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      alert("Message sent! Thank you for your message. I'll get back to you soon!")
-      setFormData({ name: "", email: "", subject: "", message: "" })
-      setIsSubmitting(false)
-    }, 1000)
+    emailjs
+      .send(
+        "service_1y4uagr", // Service ID
+        "template_sd87jyc", // Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          initials: formData.name
+            .split(' ')
+            .map(n => n[0])
+            .join('')
+            .toUpperCase(),
+          time: new Date().toLocaleString(),
+        },
+        "J1iypjLPkmIVIeREW" // Public Key
+      )
+      .then(
+        () => {
+          alert("Message sent! Thank you for your message. I'll get back to you soon!")
+          setFormData({ name: "", email: "", subject: "", message: "" })
+          setIsSubmitting(false)
+        },
+        (error) => {
+          alert("Failed to send message. Please try again later.")
+          setIsSubmitting(false)
+        }
+      )
   }
 
   return (

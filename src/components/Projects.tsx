@@ -25,7 +25,7 @@ const Projects: React.FC = () => {
     title: "PREDIKTA Marketing App - Frontend Development",
     duration: "March 2025 - June 2025",
     company: "Netopia AI (via Oaktree Innovations)",
-    role: "Software Engineer Intern",
+    role: "Full Stack Software Engineer Intern",
     description:
       "Contributed to the development of PREDIKTA Marketing App as part of the Oaktree Innovations internship program, working directly with client requirements and professional development standards.",
     contributions: [
@@ -106,7 +106,7 @@ const Projects: React.FC = () => {
                   Live Demo
                 </a>
                 <a
-                  href="#"
+                  href="https://github.com/reyowner/TaskFlow"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium transition-colors duration-200"

@@ -47,8 +47,8 @@ const Hero: React.FC = () => {
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-8 animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="block text-gray-900 dark:text-white">Reoner</span>
-              <span className="block text-gradient">Domasi Jr.</span>
+              <span className="block text-gray-900 dark:text-white">Renato</span>
+              <span className="block text-gradient">Reoner Jr.</span>
             </h1>
             <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4 h-8">
               <span>{typedText}</span>
