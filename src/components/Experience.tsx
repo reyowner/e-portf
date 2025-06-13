@@ -6,7 +6,7 @@ const Experience: React.FC = () => {
     {
       title: "Full Stack Software Engineer Intern",
       company: "Oaktree Innovations",
-      duration: "March 2025 - June 2025",
+      duration: "March 2025 - May 2025",
       location: "Remote",
       type: "Internship",
       status: "Completed",

@@ -35,7 +35,7 @@ const About: React.FC = () => {
               </p>
 
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                During my internship as a Full Stack Software Engineer at Oaktree Innovations (March 2025 - June 2025),
+                During my internship as a Full Stack Software Engineer at Oaktree Innovations (March 2025 - May 2025),
                 I gained invaluable hands-on experience working in a fully remote, agile development environment. I
                 contributed to real client projects including the PREDIKTA Marketing App for Netopia AI, where I
                 implemented UI components from Figma designs and integrated frontend components with backend APIs. The
