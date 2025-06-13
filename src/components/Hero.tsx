@@ -7,9 +7,10 @@ import { Download, Mail, Github, Linkedin } from "lucide-react"
 const Hero: React.FC = () => {
   const [typedText, setTypedText] = useState("")
   const roles = useMemo(() => [
-    "Full Stack Software Developer",
+    "Developer",
     "BS Information Technology",
-    "Problem Solver"
+    "Problem Solver",
+    "Adaptable"
   ], []);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
