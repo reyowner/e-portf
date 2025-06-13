@@ -6,7 +6,7 @@ const Experience: React.FC = () => {
     {
       title: "Full Stack Software Engineer Intern",
       company: "Oaktree Innovations",
-      duration: "March 2025 - June 2025",
+      duration: "March 2025 - May 2025",
       location: "Remote",
       type: "Internship",
       status: "Completed",
@@ -19,7 +19,7 @@ const Experience: React.FC = () => {
         "Gained valuable hands-on experience in real-world software development",
         "Improved technical proficiency, problem-solving skills, and team communication",
       ],
-      technologies: ["React.js", "Next.js", "FastAPI", "Python", "Figma", "Git", "Agile Development"],
+      technologies: ["React.js", "Next.js", "FastAPI", "Python", "Figma to Code", "Git", "Agile Development"],
     },
     {
       title: "Bachelor of Science in Information Technology",

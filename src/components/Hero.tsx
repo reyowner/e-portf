@@ -7,9 +7,10 @@ import { Download, Mail, Github, Linkedin } from "lucide-react"
 const Hero: React.FC = () => {
   const [typedText, setTypedText] = useState("")
   const roles = useMemo(() => [
-    "Full Stack Software Developer",
+    "Developer",
     "BS Information Technology",
-    "Problem Solver"
+    "Problem Solver",
+    "Adaptable"
   ], []);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
@@ -67,17 +68,21 @@ const Hero: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in-up">
             <button
               onClick={() => scrollToSection("projects")}
-              className="inline-flex items-center justify-center px-8 py-3 text-lg rounded-md bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
+              className="cursor-pointer inline-flex items-center justify-center px-8 py-3 text-lg rounded-md bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
             >
               View My Work
             </button>
-            <button className="inline-flex items-center justify-center px-8 py-3 text-lg rounded-md border-2 border-gray-300 dark:border-gray-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:border-blue-600 text-gray-800 dark:text-gray-200 font-medium transition-all duration-300">
+            <a
+              href="/RReoner_Resume.pdf"
+              download
+              className="inline-flex items-center justify-center px-8 py-3 text-lg rounded-md border-2 border-gray-300 dark:border-gray-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:border-blue-600 text-gray-800 dark:text-gray-200 font-medium transition-all duration-300"
+            >
               <Download className="mr-2 h-5 w-5" />
               Download Resume
-            </button>
+            </a>
             <button
               onClick={() => scrollToSection("contact")}
-              className="inline-flex items-center justify-center px-8 py-3 text-lg rounded-md border-2 border-gray-300 dark:border-gray-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:border-blue-600 text-gray-800 dark:text-gray-200 font-medium transition-all duration-300"
+              className="cursor-pointer inline-flex items-center justify-center px-8 py-3 text-lg rounded-md border-2 border-gray-300 dark:border-gray-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:border-blue-600 text-gray-800 dark:text-gray-200 font-medium transition-all duration-300"
             >
               <Mail className="mr-2 h-5 w-5" />
               Get In Touch

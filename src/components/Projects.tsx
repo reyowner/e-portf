@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
 
   const professionalProject = {
     title: "PREDIKTA Marketing App - Frontend Development",
-    duration: "March 2025 - June 2025",
+    duration: "March 2025 - May 2025",
     company: "Netopia AI (via Oaktree Innovations)",
     role: "Full Stack Software Engineer Intern",
     description:
@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
       "Participated in code reviews and team meetings",
       "Ensured responsive design across devices",
     ],
-    technologies: ["React.js", "Next.js", "Figma", "API Integration", "Agile/Scrum"],
+    technologies: ["React.js", "Next.js", "Figma to Code", "API Integration", "Agile/Scrum"],
     professional: true,
   }
 
