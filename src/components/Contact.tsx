@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
           setFormData({ name: "", email: "", subject: "", message: "" })
           setIsSubmitting(false)
         },
-        (error) => {
+        () => {
           alert("Failed to send message. Please try again later.")
           setIsSubmitting(false)
         }
