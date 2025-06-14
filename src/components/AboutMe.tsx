@@ -1,87 +1,182 @@
+"use client"
+
 import type React from "react"
-import { MapPin, GraduationCap, Briefcase, User } from "lucide-react"
+import { useState } from "react"
+import { MapPin, GraduationCap, Briefcase, User, Award, Target, Heart } from "lucide-react"
 
 const About: React.FC = () => {
+  const [activeTab, setActiveTab] = useState("overview")
+
   const quickFacts = [
-    { icon: MapPin, label: "Location", value: "Taguig, Metro Manila, Philippines" },
-    { icon: GraduationCap, label: "Education", value: "BS Information Technology, TIP Manila (2025)" },
+    { icon: MapPin, label: "Location", value: "Taguig, Metro Manila, Philippines", color: "text-red-500" },
+    {
+      icon: GraduationCap,
+      label: "Education",
+      value: "BS Information Technology, TIP Manila (2025)",
+      color: "text-blue-500",
+    },
     {
       icon: Briefcase,
       label: "Recent Experience",
       value: "Full Stack Software Engineer Intern at Oaktree Innovations",
+      color: "text-green-500",
     },
-    { icon: User, label: "Status", value: "Available for full-time opportunities" },
+    { icon: User, label: "Status", value: "Available for full-time opportunities", color: "text-purple-500" },
+  ]
+
+  const values = [
+    {
+      icon: Target,
+      title: "User-Centered Thinking",
+      description: "I believe in creating solutions that truly serve users' needs and enhance their experience.",
+    },
+    {
+      icon: Award,
+      title: "Continuous Learning",
+      description:
+        "Technology evolves rapidly, and I'm committed to staying current with best practices and new tools.",
+    },
+    {
+      icon: Heart,
+      title: "Collaborative Spirit",
+      description: "Great software is built by great teams. I thrive in collaborative environments.",
+    },
+  ]
+
+  const tabs = [
+    { id: "overview", label: "Overview", icon: User },
+    { id: "values", label: "Values", icon: Heart },
   ]
 
   return (
-    <section id="about" className="py-20 bg-gray-50/30 dark:bg-gray-800/30">
+    <section
+      id="about"
+      className="py-20 bg-gradient-to-br from-gray-50/50 via-white to-blue-50/30 dark:from-gray-800/30 dark:via-gray-900 dark:to-gray-800/50"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
             About Me
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Passionate software developer with a strong foundation in modern web technologies
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Passionate software developer with a strong foundation in modern web technologies and a drive for creating
+            meaningful solutions
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6">
-            <div className="prose prose-lg max-w-none">
-              <p className="mb-4 text-gray-600 dark:text-gray-400 leading-relaxed text-justify">
-                My journey in technology began with my STEM education at Thy Covenant Montessori School in Taguig City,
-                which provided a strong foundation in analytical thinking and problem-solving. This early exposure to
-                structured learning environments shaped my approach to tackling complex challenges systematically.
-              </p>
-
-              <p className="mb-4 text-gray-600 dark:text-gray-400 leading-relaxed text-justify">
-                During my internship as a Full Stack Software Engineer at Oaktree Innovations (March 2025 - May 2025),
-                I gained invaluable hands-on experience working in a fully remote, agile development environment. I
-                contributed to real client projects including the PREDIKTA Marketing App for Netopia AI, where I
-                implemented UI components from Figma designs and integrated frontend components with backend APIs. The
-                experience culminated with successfully completing the development curriculum through TaskFlow, my
-                comprehensive task management web application.
-              </p>
-
-              <p className="mb-4 text-gray-600 dark:text-gray-400 leading-relaxed text-justify">
-                What drives me most is user-centered thinking and problem-solving. I&apos;ve proven my ability to adapt
-                in fast-paced environments while working both independently and collaboratively in teams. With my recent
-                BS Information Technology degree and professional development experience, I&apos;m eager to contribute
-                to innovative projects and continue growing as a software developer.
-              </p>
+        {/* Tab Navigation */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-2 border border-gray-200/50 dark:border-gray-700/50">
+            <div className="flex space-x-2">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                    activeTab === tab.id
+                      ? "bg-blue-600 text-white shadow-lg transform scale-105"
+                      : "text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-700/50"
+                  }`}
+                >
+                  <tab.icon className="w-4 h-4 mr-2" />
+                  {tab.label}
+                </button>
+              ))}
             </div>
           </div>
+        </div>
 
-          <div className="space-y-6">
-            <div className="rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-colors duration-300">
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">Quick Facts</h3>
-                <div className="space-y-4">
-                  {quickFacts.map((fact, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <fact.icon className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium text-gray-900 dark:text-white">{fact.label}</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">{fact.value}</p>
+        {/* Tab Content */}
+        <div className="max-w-6xl mx-auto">
+          {activeTab === "overview" && (
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <div className="space-y-8">
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">My Story</h3>
+                  <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <p>
+                      My journey in technology began with my STEM education at Thy Covenant Montessori School in Taguig
+                      City, which provided a strong foundation in analytical thinking and problem-solving. This early
+                      exposure to structured learning environments shaped my approach to tackling complex challenges
+                      systematically.
+                    </p>
+                    <p>
+                      During my internship as a Full Stack Software Engineer at Oaktree Innovations, I gained invaluable
+                      hands-on experience working in a fully remote, agile development environment. I contributed to
+                      real client projects including the PREDIKTA Marketing App for Netopia AI, where I implemented UI
+                      components from Figma designs and integrated frontend components with backend APIs.
+                    </p>
+                    <p>
+                      What drives me most is user-centered thinking and problem-solving. I've proven my ability to adapt
+                      in fast-paced environments while working both independently and collaboratively in teams. With my
+                      recent BS Information Technology degree and professional development experience, I'm eager to
+                      contribute to innovative projects and continue growing as a software developer.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-8">
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+                  <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6">Quick Facts</h3>
+                  <div className="space-y-6">
+                    {quickFacts.map((fact, index) => (
+                      <div key={index} className="flex items-start space-x-4 group">
+                        <div
+                          className={`p-3 rounded-2xl bg-gray-100 dark:bg-gray-700 group-hover:scale-110 transition-transform duration-300`}
+                        >
+                          <fact.icon className={`h-5 w-5 ${fact.color}`} />
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-semibold text-gray-900 dark:text-white">{fact.label}</p>
+                          <p className="text-gray-600 dark:text-gray-400 mt-1">{fact.value}</p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <div className="rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-sm hover:border-blue-500/50 dark:hover:border-blue-400/50 transition-colors duration-300">
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">Work Style</h3>
-                <div className="space-y-2">
-                  <p className="text-gray-600 dark:text-gray-400">✓ Remote, agile development</p>
-                  <p className="text-gray-600 dark:text-gray-400">✓ Collaborative team environment</p>
-                  <p className="text-gray-600 dark:text-gray-400">✓ User-centered approach</p>
-                  <p className="text-gray-600 dark:text-gray-400">✓ Continuous learning mindset</p>
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+                  <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6">Work Style</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {[
+                      "Remote Ready",
+                      "Agile Mindset",
+                      "Team Player",
+                      "Fast Learner",
+                      "Detail Oriented",
+                      "Problem Solver",
+                    ].map((trait, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center space-x-2 p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors duration-300"
+                      >
+                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                        <span className="text-gray-700 dark:text-gray-300 font-medium">{trait}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
+
+          {activeTab === "values" && (
+            <div className="grid md:grid-cols-3 gap-8">
+              {values.map((value, index) => (
+                <div
+                  key={index}
+                  className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-center"
+                >
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <value.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{value.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

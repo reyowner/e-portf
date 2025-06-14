@@ -41,76 +41,76 @@ const Hero: React.FC = () => {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-white to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800/50 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-blue-500/10 dark:bg-blue-500/20 blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-purple-500/10 dark:bg-purple-500/20 blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 dark:bg-blue-500/10 blur-3xl transform -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 dark:bg-purple-500/10 blur-3xl transform translate-y-1/2 -translate-x-1/2"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          <div className="mb-8 animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="mb-12 animate-fade-in-up">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
               <span className="block text-gray-900 dark:text-white">Renato</span>
-              <span className="block text-gradient">Reoner Jr.</span>
+              <span className="block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Reoner Jr.</span>
             </h1>
-            <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-4 h-8">
-              <span>{typedText}</span>
+            <div className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-6 h-8">
+              <span className="font-medium">{typedText}</span>
               <span className="animate-pulse">|</span>
             </div>
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Recent BS IT Graduate with 3 months professional experience at Oaktree Innovations. Passionate about
               creating user-centered solutions with modern web technologies.
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in-up">
+          <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in-up">
             <button
               onClick={() => scrollToSection("projects")}
-              className="cursor-pointer inline-flex items-center justify-center px-8 py-3 text-lg rounded-md bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
+              className="inline-flex items-center justify-center px-6 py-2.5 text-base rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors duration-200"
             >
               View My Work
             </button>
             <a
               href="/RReoner_Resume.pdf"
               download
-              className="inline-flex items-center justify-center px-8 py-3 text-lg rounded-md border-2 border-gray-300 dark:border-gray-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:border-blue-600 text-gray-800 dark:text-gray-200 font-medium transition-all duration-300"
+              className="inline-flex items-center justify-center px-6 py-2.5 text-base rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium transition-all duration-200"
             >
-              <Download className="mr-2 h-5 w-5" />
+              <Download className="mr-2 h-4 w-4" />
               Download Resume
             </a>
             <button
               onClick={() => scrollToSection("contact")}
-              className="cursor-pointer inline-flex items-center justify-center px-8 py-3 text-lg rounded-md border-2 border-gray-300 dark:border-gray-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:border-blue-600 text-gray-800 dark:text-gray-200 font-medium transition-all duration-300"
+              className="inline-flex items-center justify-center px-6 py-2.5 text-base rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium transition-all duration-200"
             >
-              <Mail className="mr-2 h-5 w-5" />
+              <Mail className="mr-2 h-4 w-4" />
               Get In Touch
             </button>
           </div>
 
-          <div className="flex justify-center space-x-6 animate-fade-in-up">
+          <div className="flex justify-center space-x-8 animate-fade-in-up">
             <a
               href="https://github.com/reyowner"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
+              className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
             >
-              <Github className="h-6 w-6" />
+              <Github className="h-5 w-5" />
             </a>
             <a
               href="https://linkedin.com/in/rreonerjr"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
+              className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
             >
-              <Linkedin className="h-6 w-6" />
+              <Linkedin className="h-5 w-5" />
             </a>
             <a
               href="#contact"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
+              className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
             >
-              <Mail className="h-6 w-6" />
+              <Mail className="h-5 w-5" />
             </a>
           </div>
         </div>
