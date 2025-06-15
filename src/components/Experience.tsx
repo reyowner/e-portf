@@ -239,7 +239,7 @@ const Experience: React.FC = () => {
             Professional Journey
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            My educational background, professional development, and progressive growth in software development
+            My educational background, professional development, and overall progressive growth in the field of Information Technology
           </p>
         </div>
 

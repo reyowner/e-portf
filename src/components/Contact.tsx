@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
             Let's Connect
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Ready to start immediately and available for full-time software development opportunities.
+            Ready to start and available for any opportunities you can offer.
           </p>
         </div>
 
