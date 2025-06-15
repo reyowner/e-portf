@@ -196,7 +196,7 @@ const Projects: React.FC = () => {
   const swipeConfidenceThreshold = 50
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-800/30 via-gray-900 to-gray-800/50">
+    <section id="projects" className="py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
