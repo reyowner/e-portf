@@ -52,17 +52,17 @@ const Footer = () => {
 
       <div className="relative z-10">
         {/* Main footer content */}
-        <div className="container mx-auto px-4 py-16">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+        <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
             {/* Brand section */}
             <div className="lg:col-span-2">
               <div className="mb-6">
-                <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
+                <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
                   Renato Reoner Jr.
                 </h3>
-                <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                  BS Information Technology Graduate passionate about creating innovative solutions with 
-                  modern technologies.
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-md">
+                  BS Information Technology Graduate passionate about creating innovative solutions with modern
+                  technologies.
                 </p>
               </div>
 
@@ -73,14 +73,14 @@ const Footer = () => {
                 <span className="text-sm">using Next.js, React & Tailwind CSS</span>
               </div>
 
-              <div className="flex space-x-4">
+              <div className="flex space-x-3 sm:space-x-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.href}
                     target={social.href.startsWith("http") ? "_blank" : undefined}
                     rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className={`group p-3 rounded-2xl bg-gray-800/50 border border-gray-700/50 hover:border-gray-600 transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${social.color}`}
+                    className={`group p-2.5 sm:p-3 rounded-2xl bg-gray-800/50 border border-gray-700/50 hover:border-gray-600 transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${social.color}`}
                     aria-label={social.label}
                   >
                     <social.icon className="h-5 w-5 transition-transform duration-300 group-hover:rotate-12" />
@@ -91,7 +91,7 @@ const Footer = () => {
 
             {/* Quick links */}
             <div>
-              <h4 className="text-xl font-semibold mb-6 text-white">Quick Links</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-6 text-white">Quick Links</h4>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
@@ -108,7 +108,7 @@ const Footer = () => {
 
             {/* Contact info */}
             <div>
-              <h4 className="text-xl font-semibold mb-6 text-white">Get In Touch</h4>
+              <h4 className="text-lg sm:text-xl font-semibold mb-6 text-white">Get In Touch</h4>
               <div className="space-y-4">
                 <div>
                   <p className="text-gray-400 text-sm mb-1">Email</p>
@@ -145,9 +145,9 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="border-t border-gray-800">
-          <div className="container mx-auto px-4 py-6">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="flex items-center space-x-4 text-gray-400 text-sm">
+          <div className="container mx-auto px-4 py-4 sm:py-6">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+              <div className="flex items-center space-x-4 text-gray-400 text-xs sm:text-sm">
                 <span>&copy; {currentYear} Renato Reoner Jr. All rights reserved.</span>
                 <div className="hidden md:flex items-center space-x-2">
                   <Coffee className="h-4 w-4" />
@@ -157,7 +157,7 @@ const Footer = () => {
 
               <button
                 onClick={scrollToTop}
-                className="group p-3 rounded-2xl bg-blue-600/20 border border-blue-500/30 hover:bg-blue-600/30 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-110"
+                className="group p-2.5 sm:p-3 rounded-2xl bg-blue-600/20 border border-blue-500/30 hover:bg-blue-600/30 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-110"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="h-5 w-5 text-blue-400 group-hover:text-blue-300 transition-colors duration-300" />

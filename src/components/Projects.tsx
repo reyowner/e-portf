@@ -88,29 +88,27 @@ const Projects: React.FC = () => {
   const totalItems = allProjects.length
 
   const nextSlide = () => {
-    // Simulate drag offset for smooth wheel rotation
     setIsDragging(true)
-    setDragOffset(-0.5) // Negative for forward rotation
+    setDragOffset(-0.5)
 
     setTimeout(() => {
       const next = (currentIndex + 1) % totalItems
       setCurrentIndex(next)
       setIsDragging(false)
       setDragOffset(0)
-    }, 150) // Brief delay to show rotation
+    }, 150)
   }
 
   const prevSlide = () => {
-    // Simulate drag offset for smooth wheel rotation
     setIsDragging(true)
-    setDragOffset(0.5) // Positive for backward rotation
+    setDragOffset(0.5)
 
     setTimeout(() => {
       const prev = (currentIndex - 1 + totalItems) % totalItems
       setCurrentIndex(prev)
       setIsDragging(false)
       setDragOffset(0)
-    }, 150) // Brief delay to show rotation
+    }, 150)
   }
 
   const handleNavigation = (newIndex: number) => {
@@ -131,13 +129,11 @@ const Projects: React.FC = () => {
   const getWheelPosition = (index: number, offset = 0) => {
     const totalOffset = ((index - currentIndex + totalItems) % totalItems) + offset
     const angle = (totalOffset * 360) / totalItems
-    const radius = 300 // Distance from center
+    const radius = 300
 
-    // Calculate position on the wheel
     const x = Math.sin((angle * Math.PI) / 180) * radius
     const z = Math.cos((angle * Math.PI) / 180) * radius - radius
 
-    // Visual properties based on position
     const scale = Math.max(0.6, 1 - Math.abs(totalOffset) * 0.2)
     const opacity = Math.max(0.3, 1 - Math.abs(totalOffset) * 0.35)
 
@@ -146,7 +142,7 @@ const Projects: React.FC = () => {
       z,
       scale,
       opacity,
-      rotateY: -angle * 0.01, // Subtle rotation for depth
+      rotateY: -angle * 0.01,
     }
   }
 
@@ -196,13 +192,13 @@ const Projects: React.FC = () => {
   const swipeConfidenceThreshold = 50
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800">
+    <section id="projects" className="py-8 sm:py-12 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
             A showcase of my professional work and personal projects
           </p>
         </div>
@@ -212,7 +208,7 @@ const Projects: React.FC = () => {
           <div className="hidden md:flex justify-between absolute w-full top-1/2 -translate-y-1/2 z-20">
             <button
               onClick={prevSlide}
-              className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-800/90 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg -translate-x-6 hover:scale-110"
+              className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-800/90 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg -translate-x-3 sm:-translate-x-6 hover:scale-110"
               aria-label="Previous project"
             >
               <ChevronLeft className="h-5 w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
@@ -220,7 +216,7 @@ const Projects: React.FC = () => {
 
             <button
               onClick={nextSlide}
-              className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-800/90 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg translate-x-6 hover:scale-110"
+              className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-800/90 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg translate-x-3 sm:translate-x-6 hover:scale-110"
               aria-label="Next project"
             >
               <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
@@ -230,7 +226,7 @@ const Projects: React.FC = () => {
           {/* Wheel Carousel Container */}
           <div className="relative overflow-hidden" style={{ perspective: "1000px" }}>
             <motion.div
-              className="relative flex items-start justify-center gap-6 min-h-[600px]"
+              className="relative flex items-start justify-center gap-3 sm:gap-6 min-h-[350px] sm:min-h-[450px] lg:min-h-[600px]"
               style={{ transformStyle: "preserve-3d" }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
@@ -248,7 +244,7 @@ const Projects: React.FC = () => {
                 }
               }}
               onDrag={(e, { offset }) => {
-                setDragOffset(offset.x / 200) // Normalize drag offset
+                setDragOffset(offset.x / 200)
               }}
             >
               {getVisibleItems().map((project) => {
@@ -259,7 +255,11 @@ const Projects: React.FC = () => {
                 return (
                   <motion.div
                     key={`${project.index}-${currentIndex}`}
-                    className={`flex-shrink-0 ${isCenter ? "w-full max-w-5xl py-2" : "w-80 max-w-sm"}`}
+                    className={`flex-shrink-0 ${
+                      isCenter
+                        ? "w-full max-w-xs sm:max-w-2xl lg:max-w-5xl py-1 sm:py-2"
+                        : "w-48 sm:w-64 lg:w-80 max-w-xs sm:max-w-sm"
+                    }`}
                     style={{ transformStyle: "preserve-3d" }}
                     animate={{
                       x: wheelPos.x,
@@ -288,7 +288,7 @@ const Projects: React.FC = () => {
                     whileTap={!isCenter ? { scale: 0.75 } : {}}
                   >
                     <div
-                      className={`group rounded-3xl border-2 bg-gray-800/80 shadow-lg transition-all duration-500 ${
+                      className={`group rounded-2xl sm:rounded-3xl border-2 bg-gray-800/80 shadow-lg transition-all duration-500 ${
                         isCenter
                           ? "border-blue-400/50 hover:border-blue-400/70 hover:shadow-2xl"
                           : "border-gray-700/50 hover:border-gray-600"
@@ -296,41 +296,47 @@ const Projects: React.FC = () => {
                       onClick={() => !isCenter && handleNavigation(project.index)}
                     >
                       {/* Project Header */}
-                      <div className="p-6 pb-4">
-                        <div className="flex flex-wrap items-center gap-3 mb-4">
+                      <div className="p-3 pb-2 sm:p-4 sm:pb-3 lg:p-6 lg:pb-4">
+                        <div className="flex flex-wrap items-center gap-1 sm:gap-2 lg:gap-3 mb-2 sm:mb-4">
                           <span
-                            className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(project.category)}`}
+                            className={`inline-flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-semibold border ${getCategoryColor(project.category)}`}
                           >
-                            <ProjectIcon className="w-3 h-3 mr-1" />
-                            {project.category}
+                            <ProjectIcon className="w-2 h-2 sm:w-3 sm:h-3 mr-1" />
+                            <span className="text-xs sm:text-xs">{project.category}</span>
                           </span>
-                          <span className="text-sm text-gray-500 flex items-center">
-                            <Calendar className="w-4 h-4 mr-1" />
-                            {project.duration}
+                          <span className="text-xs text-gray-500 flex items-center">
+                            <Calendar className="w-2 h-2 sm:w-3 sm:h-3 lg:w-4 lg:h-4 mr-1" />
+                            <span className="text-xs sm:text-xs">{project.duration}</span>
                           </span>
                         </div>
 
                         <h3
-                          className={`font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300 ${
-                            isCenter ? "text-2xl md:text-3xl" : "text-lg"
+                          className={`font-bold mb-2 sm:mb-3 text-white group-hover:text-blue-400 transition-colors duration-300 leading-tight ${
+                            isCenter ? "text-sm sm:text-lg md:text-xl lg:text-3xl" : "text-xs sm:text-sm lg:text-base"
                           }`}
                         >
                           {project.title}
                         </h3>
 
                         {project.company && (
-                          <div className="mb-2">
-                            <p className="text-base font-semibold text-blue-400">{project.company}</p>
-                            {project.role && <p className="text-sm text-gray-400">{project.role}</p>}
+                          <div className="mb-1 sm:mb-2">
+                            <p className="text-xs sm:text-sm lg:text-base font-semibold text-blue-400">
+                              {project.company}
+                            </p>
+                            {project.role && <p className="text-xs text-gray-400">{project.role}</p>}
                           </div>
                         )}
 
                         {project.type && !project.company && (
-                          <p className="text-base font-medium text-blue-400 mb-2">{project.type}</p>
+                          <p className="text-xs sm:text-sm lg:text-base font-medium text-blue-400 mb-1 sm:mb-2">
+                            {project.type}
+                          </p>
                         )}
 
                         <p
-                          className={`text-gray-400 leading-relaxed ${isCenter ? "text-base" : "text-sm line-clamp-3"}`}
+                          className={`text-gray-400 leading-relaxed ${
+                            isCenter ? "text-xs sm:text-sm lg:text-base" : "text-xs line-clamp-2 sm:line-clamp-3"
+                          }`}
                         >
                           {project.description}
                         </p>
@@ -339,42 +345,42 @@ const Projects: React.FC = () => {
                       {/* Content - Only show full content for center card */}
                       {isCenter && (
                         <motion.div
-                          className="p-6"
+                          className="p-3 pt-0 sm:p-4 sm:pt-0 lg:p-6 lg:pt-0"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.2, duration: 0.5 }}
                         >
-                          <div>
-                            <h4 className="text-xl font-bold mb-4 text-white flex items-center">
-                              <Zap className="w-4 h-4 mr-2 text-blue-400" />
+                          <div className="mb-4 sm:mb-6 lg:mb-8">
+                            <h4 className="text-xs sm:text-sm lg:text-xl font-bold mb-2 sm:mb-4 text-white flex items-center">
+                              <Zap className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-blue-400" />
                               Key Features
                             </h4>
-                            <div className="mb-8 grid md:grid-cols-2 gap-3">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 sm:gap-2 lg:gap-3">
                               {project.features.map((feature, featureIndex) => (
                                 <motion.div
                                   key={featureIndex}
-                                  className="flex items-start space-x-3 p-3 rounded-xl bg-gray-700/30 hover:bg-blue-900/20 transition-colors duration-300"
+                                  className="flex items-start space-x-2 sm:space-x-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gray-700/30 hover:bg-blue-900/20 transition-colors duration-300"
                                   initial={{ opacity: 0, x: -20 }}
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ delay: 0.3 + featureIndex * 0.05, duration: 0.3 }}
                                 >
-                                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                                  <span className="text-gray-300">{feature}</span>
+                                  <div className="w-1 h-1 sm:w-2 sm:h-2 bg-blue-600 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                                  <span className="text-gray-300 text-xs sm:text-sm leading-relaxed">{feature}</span>
                                 </motion.div>
                               ))}
                             </div>
                           </div>
 
-                          <div>
-                            <h4 className="text-xl font-bold mb-4 text-white flex items-center">
-                              <Code className="w-4 h-4 mr-2 text-blue-400" />
+                          <div className="mb-4 sm:mb-6 lg:mb-8">
+                            <h4 className="text-xs sm:text-sm lg:text-xl font-bold mb-2 sm:mb-4 text-white flex items-center">
+                              <Code className="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-blue-400" />
                               Technologies Used
                             </h4>
-                            <div className="mb-8 flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-1 sm:gap-2">
                               {project.technologies.map((tech, techIndex) => (
                                 <motion.span
                                   key={techIndex}
-                                  className="inline-flex items-center px-4 py-2 rounded-xl text-sm font-medium bg-gradient-to-r from-gray-700 to-gray-600 text-gray-200 hover:from-blue-900/30 hover:to-blue-800/30 transition-all duration-300 transform hover:scale-105"
+                                  className="inline-flex items-center px-2 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2 rounded-lg sm:rounded-xl text-xs font-medium bg-gradient-to-r from-gray-700 to-gray-600 text-gray-200 hover:from-blue-900/30 hover:to-blue-800/30 transition-all duration-300 transform hover:scale-105"
                                   initial={{ opacity: 0, scale: 0.8 }}
                                   animate={{ opacity: 1, scale: 1 }}
                                   transition={{ delay: 0.4 + techIndex * 0.05, duration: 0.3 }}
@@ -389,7 +395,7 @@ const Projects: React.FC = () => {
 
                           {/* Links */}
                           <motion.div
-                            className="flex flex-wrap gap-3"
+                            className="flex flex-wrap gap-2 sm:gap-3"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5, duration: 0.3 }}
@@ -399,11 +405,11 @@ const Projects: React.FC = () => {
                                 href={project.liveUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-sm group inline-flex items-center px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                                className="text-xs sm:text-sm group inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 lg:px-5 lg:py-3 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                               >
-                                <ExternalLink className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                                <ExternalLink className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 group-hover:rotate-12 transition-transform duration-300" />
                                 {project.liveUrl === "#" ? "You're Here!" : "Live Demo"}
                               </motion.a>
                             )}
@@ -412,11 +418,11 @@ const Projects: React.FC = () => {
                                 href={project.githubUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-sm group inline-flex items-center px-4 py-2 rounded-2xl border-2 border-gray-700 hover:border-blue-600 hover:bg-blue-900/20 text-gray-300 hover:text-blue-400 font-semibold transition-all duration-300 transform hover:scale-105"
+                                className="text-xs sm:text-sm group inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 lg:px-5 lg:py-3 rounded-xl sm:rounded-2xl border-2 border-gray-700 hover:border-blue-600 hover:bg-blue-900/20 text-gray-300 hover:text-blue-400 font-semibold transition-all duration-300 transform hover:scale-105"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                               >
-                                <Github className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                                <Github className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 group-hover:rotate-12 transition-transform duration-300" />
                                 View Code
                               </motion.a>
                             )}
@@ -426,11 +432,11 @@ const Projects: React.FC = () => {
 
                       {/* Side cards preview */}
                       {!isCenter && (
-                        <div className="p-6 pt-0">
+                        <div className="p-3 pt-0 sm:p-6 sm:pt-0">
                           <div className="text-center">
-                            <div className="text-sm text-gray-500 mb-2">Click to view details</div>
+                            <div className="text-xs text-gray-500 mb-1 sm:mb-2">Click to view details</div>
                             <div className="flex justify-center">
-                              <ChevronRight className="h-4 w-4 text-blue-400" />
+                              <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-blue-400" />
                             </div>
                           </div>
                         </div>
@@ -444,14 +450,14 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Pagination and Mobile Navigation */}
-        <div className="flex items-center justify-center gap-4 mt-8">
+        <div className="flex items-center justify-center gap-4 mt-6 sm:mt-8">
           {/* Mobile Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="md:hidden group flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg hover:scale-110"
+            className="md:hidden group flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-800 border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg hover:scale-110"
             aria-label="Previous project"
           >
-            <ChevronLeft className="h-5 w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
           </button>
 
           {/* Pagination Dots */}
@@ -464,7 +470,7 @@ const Projects: React.FC = () => {
                 aria-label={`Go to project ${index + 1}`}
               >
                 <div
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 ${
                     currentIndex === index ? "bg-blue-600 scale-125" : "bg-gray-700 group-hover:bg-gray-600"
                   }`}
                 />
@@ -486,10 +492,10 @@ const Projects: React.FC = () => {
           {/* Mobile Navigation Arrows */}
           <button
             onClick={nextSlide}
-            className="md:hidden group flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg hover:scale-110"
+            className="md:hidden group flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-800 border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg hover:scale-110"
             aria-label="Next project"
           >
-            <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
           </button>
         </div>
       </div>

@@ -114,42 +114,38 @@ const Experience: React.FC = () => {
   }
 
   const nextSlide = () => {
-    // Simulate drag offset for smooth wheel rotation
     setIsDragging(true)
-    setDragOffset(-0.5) // Negative for forward rotation
+    setDragOffset(-0.5)
 
     setTimeout(() => {
       const next = (currentIndex + 1) % totalItems
       setCurrentIndex(next)
       setIsDragging(false)
       setDragOffset(0)
-    }, 150) // Brief delay to show rotation
+    }, 150)
   }
 
   const prevSlide = () => {
-    // Simulate drag offset for smooth wheel rotation
     setIsDragging(true)
-    setDragOffset(0.5) // Positive for backward rotation
+    setDragOffset(0.5)
 
     setTimeout(() => {
       const prev = (currentIndex - 1 + totalItems) % totalItems
       setCurrentIndex(prev)
       setIsDragging(false)
       setDragOffset(0)
-    }, 150) // Brief delay to show rotation
+    }, 150)
   }
 
   // Calculate wheel positions for each card
   const getWheelPosition = (index: number, offset = 0) => {
     const totalOffset = ((index - currentIndex + totalItems) % totalItems) + offset
     const angle = (totalOffset * 360) / totalItems
-    const radius = 300 // Distance from center
+    const radius = 300
 
-    // Calculate position on the wheel
     const x = Math.sin((angle * Math.PI) / 180) * radius
     const z = Math.cos((angle * Math.PI) / 180) * radius - radius
 
-    // Visual properties based on position
     const scale = Math.max(0.6, 1 - Math.abs(totalOffset) * 0.2)
     const opacity = Math.max(0.3, 1 - Math.abs(totalOffset) * 0.35)
 
@@ -158,7 +154,7 @@ const Experience: React.FC = () => {
       z,
       scale,
       opacity,
-      rotateY: -angle * 0.01, // Subtle rotation for depth
+      rotateY: -angle * 0.01,
     }
   }
 
@@ -220,10 +216,9 @@ const Experience: React.FC = () => {
     }
   }
 
-  // Custom Badge component
   const Badge = ({ className, children }: { className: string; children: React.ReactNode }) => (
     <span
-      className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${className}`}
+      className={`inline-flex items-center rounded-full border px-2 py-1 sm:px-3 sm:py-1 text-xs font-semibold transition-colors ${className}`}
     >
       {children}
     </span>
@@ -232,14 +227,17 @@ const Experience: React.FC = () => {
   const swipeConfidenceThreshold = 50
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800">
+    <section
+      id="experience"
+      className="py-8 sm:py-12 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
             Professional Journey
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            My educational background, professional development, and overall progressive growth in the field of Information Technology
+          <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
+            My educational background, professional development, and progressive growth in software development
           </p>
         </div>
 
@@ -248,7 +246,7 @@ const Experience: React.FC = () => {
           <div className="hidden md:flex justify-between absolute w-full top-1/2 -translate-y-1/2 z-20">
             <button
               onClick={prevSlide}
-              className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-800/90 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg -translate-x-6 hover:scale-110"
+              className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-800/90 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg -translate-x-3 sm:-translate-x-6 hover:scale-110"
               aria-label="Previous experience"
             >
               <ChevronLeft className="h-5 w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
@@ -256,7 +254,7 @@ const Experience: React.FC = () => {
 
             <button
               onClick={nextSlide}
-              className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-800/90 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg translate-x-6 hover:scale-110"
+              className="group flex items-center justify-center w-12 h-12 rounded-full bg-gray-800/90 backdrop-blur-sm border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg translate-x-3 sm:translate-x-6 hover:scale-110"
               aria-label="Next experience"
             >
               <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
@@ -266,7 +264,7 @@ const Experience: React.FC = () => {
           {/* Wheel Carousel Container */}
           <div className="relative overflow-hidden" style={{ perspective: "1000px" }}>
             <motion.div
-              className="relative flex items-start justify-center gap-6 min-h-[600px]"
+              className="relative flex items-start justify-center gap-3 sm:gap-6 min-h-[350px] sm:min-h-[450px] lg:min-h-[600px]"
               style={{ transformStyle: "preserve-3d" }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
@@ -284,7 +282,7 @@ const Experience: React.FC = () => {
                 }
               }}
               onDrag={(e, { offset }) => {
-                setDragOffset(offset.x / 200) // Normalize drag offset
+                setDragOffset(offset.x / 200)
               }}
             >
               {getVisibleItems().map((exp) => {
@@ -295,7 +293,11 @@ const Experience: React.FC = () => {
                 return (
                   <motion.div
                     key={`${exp.index}-${currentIndex}`}
-                    className={`flex-shrink-0 ${isCenter ? "w-full max-w-5xl py-2" : "w-80 max-w-sm"}`}
+                    className={`flex-shrink-0 ${
+                      isCenter
+                        ? "w-full max-w-xs sm:max-w-2xl lg:max-w-5xl py-1 sm:py-2"
+                        : "w-48 sm:w-64 lg:w-80 max-w-xs sm:max-w-sm"
+                    }`}
                     style={{ transformStyle: "preserve-3d" }}
                     animate={{
                       x: wheelPos.x,
@@ -324,48 +326,52 @@ const Experience: React.FC = () => {
                     whileTap={!isCenter ? { scale: 0.75 } : {}}
                   >
                     <div
-                      className={`group rounded-3xl border-2 bg-gray-800 shadow-lg transition-all duration-500 ${
+                      className={`group rounded-2xl sm:rounded-3xl border-2 bg-gray-800 shadow-lg transition-all duration-500 ${
                         isCenter
                           ? "border-blue-400/50 hover:border-blue-400/70 hover:shadow-2xl"
-                          : "border-gray-700 hover:border-gray-600"
+                          : "border-gray-700/50 hover:border-gray-600"
                       } ${!isCenter ? "cursor-pointer" : ""}`}
                       onClick={() => !isCenter && handleNavigation(exp.index)}
                     >
                       {/* Experience Header */}
-                      <div className="p-6 pb-4">
-                        <div className="flex flex-wrap items-center gap-3 mb-4">
+                      <div className="p-3 pb-2 sm:p-4 sm:pb-3 lg:p-6 lg:pb-4">
+                        <div className="flex flex-wrap items-center gap-1 sm:gap-2 lg:gap-3 mb-2 sm:mb-4">
                           <Badge className={getTypeColor(exp.type)}>
-                            <CategoryIcon className="w-3 h-3 mr-1" />
-                            {exp.type}
+                            <CategoryIcon className="w-2 h-2 sm:w-3 sm:h-3 mr-1" />
+                            <span className="text-xs sm:text-xs">{exp.type}</span>
                           </Badge>
-                          <Badge className={getStatusColor(exp.status)}>{exp.status}</Badge>
-                          <span className="text-sm text-gray-400 flex items-center">
-                            <Calendar className="w-4 h-4 mr-1" />
-                            {exp.duration}
+                          <Badge className={getStatusColor(exp.status)}>
+                            <span className="text-xs sm:text-xs">{exp.status}</span>
+                          </Badge>
+                          <span className="text-xs text-gray-500 flex items-center">
+                            <Calendar className="w-2 h-2 sm:w-3 sm:h-3 lg:w-4 lg:h-4 mr-1" />
+                            <span className="text-xs sm:text-xs">{exp.duration}</span>
                           </span>
                         </div>
 
                         <h3
-                          className={`font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300 ${
-                            isCenter ? "text-2xl md:text-3xl" : "text-lg"
+                          className={`font-bold mb-2 sm:mb-3 text-white group-hover:text-blue-400 transition-colors duration-300 leading-tight ${
+                            isCenter ? "text-sm sm:text-lg md:text-xl lg:text-3xl" : "text-xs sm:text-sm lg:text-base"
                           }`}
                         >
                           {exp.title}
                         </h3>
 
-                        <div className="flex flex-wrap items-center gap-4 mb-4">
-                          <div className="flex items-center text-blue-400 font-semibold text-base">
-                            <Building className="mr-2 h-5 w-5" />
-                            {exp.company}
+                        <div className="flex flex-col gap-1 sm:gap-2 lg:gap-4 lg:flex-row lg:items-center mb-2 sm:mb-4">
+                          <div className="flex items-center text-blue-400 font-semibold text-xs sm:text-sm lg:text-base">
+                            <Building className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 flex-shrink-0" />
+                            <span className="truncate text-xs sm:text-sm">{exp.company}</span>
                           </div>
-                          <div className="flex items-center text-gray-400 text-sm">
-                            <MapPin className="mr-2 h-4 w-4" />
-                            {exp.location}
+                          <div className="flex items-center text-gray-400 text-xs">
+                            <MapPin className="mr-1 sm:mr-2 h-2 w-2 sm:h-3 sm:w-3 lg:h-4 lg:w-4 flex-shrink-0" />
+                            <span className="text-xs">{exp.location}</span>
                           </div>
                         </div>
 
                         <p
-                          className={`text-gray-400 leading-relaxed ${isCenter ? "text-base" : "text-sm line-clamp-3"}`}
+                          className={`text-gray-400 leading-relaxed ${
+                            isCenter ? "text-xs sm:text-sm lg:text-base" : "text-xs line-clamp-2 sm:line-clamp-3"
+                          }`}
                         >
                           {exp.description}
                         </p>
@@ -374,53 +380,66 @@ const Experience: React.FC = () => {
                       {/* Content - Only show full content for center card */}
                       {isCenter && (
                         <motion.div
-                          className="p-6 pt-0"
+                          className="p-3 pt-0 sm:p-4 sm:pt-0 lg:p-6 lg:pt-0"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.2, duration: 0.5 }}
                         >
                           {/* Highlights */}
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-2 lg:gap-3 mb-4 sm:mb-6">
                             {exp.highlights.map((highlight, highlightIndex) => (
                               <motion.div
                                 key={highlightIndex}
-                                className="text-center p-3 rounded-xl bg-blue-900/20 border border-blue-800/50"
+                                className="text-center p-2 sm:p-3 rounded-lg sm:rounded-xl bg-blue-900/20 border border-blue-800/50"
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 0.3 + highlightIndex * 0.1, duration: 0.3 }}
                               >
-                                <div className="text-sm font-medium text-blue-300">{highlight}</div>
+                                <div className="text-xs sm:text-sm font-medium text-blue-300">{highlight}</div>
                               </motion.div>
                             ))}
                           </div>
 
                           {/* Achievements */}
-                          <div>
-                            <h4 className="text-sm font-semibold text-white mb-3">Key Achievements</h4>
-                            <div className="grid md:grid-cols-2 gap-3">
-                              {exp.achievements.map((achievement, achievementIndex) => (
+                          <div className="mb-4 sm:mb-6">
+                            <h4 className="text-xs sm:text-sm lg:text-base font-semibold text-white mb-2 sm:mb-3">
+                              Key Achievements
+                            </h4>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 sm:gap-2 lg:gap-3">
+                              {exp.achievements.slice(0, 6).map((achievement, achievementIndex) => (
                                 <motion.div
                                   key={achievementIndex}
-                                  className="flex items-start space-x-3 p-3 rounded-xl bg-gray-700/30 hover:bg-blue-900/20 transition-colors duration-300"
+                                  className="flex items-start space-x-2 sm:space-x-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gray-700/30 hover:bg-blue-900/20 transition-colors duration-300"
                                   initial={{ opacity: 0, x: -20 }}
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ delay: 0.4 + achievementIndex * 0.05, duration: 0.3 }}
                                 >
-                                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                                  <span className="text-gray-300">{achievement}</span>
+                                  <div className="w-1 h-1 sm:w-2 sm:h-2 bg-blue-600 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                                  <span className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                    {achievement}
+                                  </span>
                                 </motion.div>
                               ))}
                             </div>
+                            {exp.achievements.length > 6 && (
+                              <div className="text-center mt-2">
+                                <span className="text-xs text-gray-500">
+                                  +{exp.achievements.length - 6} more achievements
+                                </span>
+                              </div>
+                            )}
                           </div>
 
                           {/* Technologies */}
-                          <div className="mt-6">
-                            <h4 className="text-sm font-semibold text-white mb-3">Technologies & Skills</h4>
-                            <div className="flex flex-wrap gap-2">
+                          <div>
+                            <h4 className="text-xs sm:text-sm lg:text-base font-semibold text-white mb-2 sm:mb-3">
+                              Technologies & Skills
+                            </h4>
+                            <div className="flex flex-wrap gap-1 sm:gap-2">
                               {exp.technologies.map((tech, techIndex) => (
                                 <motion.span
                                   key={techIndex}
-                                  className="inline-flex items-center px-4 py-2 rounded-xl text-sm font-medium bg-gradient-to-r from-gray-700 to-gray-600 text-gray-200 hover:from-blue-900/30 hover:to-blue-800/30 transition-all duration-300 transform hover:scale-105"
+                                  className="inline-flex items-center px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl text-xs font-medium bg-gradient-to-r from-gray-700 to-gray-600 text-gray-200 hover:from-blue-900/30 hover:to-blue-800/30 transition-all duration-300 transform hover:scale-105"
                                   initial={{ opacity: 0, scale: 0.8 }}
                                   animate={{ opacity: 1, scale: 1 }}
                                   transition={{ delay: 0.5 + techIndex * 0.05, duration: 0.3 }}
@@ -437,11 +456,11 @@ const Experience: React.FC = () => {
 
                       {/* Side cards preview */}
                       {!isCenter && (
-                        <div className="p-6 pt-0">
+                        <div className="p-3 pt-0 sm:p-6 sm:pt-0">
                           <div className="text-center">
-                            <div className="text-sm text-gray-500 mb-2">Click to view details</div>
+                            <div className="text-xs text-gray-500 mb-1 sm:mb-2">Click to view details</div>
                             <div className="flex justify-center">
-                              <ChevronRight className="h-4 w-4 text-blue-400" />
+                              <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-blue-400" />
                             </div>
                           </div>
                         </div>
@@ -455,14 +474,14 @@ const Experience: React.FC = () => {
         </div>
 
         {/* Pagination and Mobile Navigation */}
-        <div className="flex items-center justify-center gap-4 mt-8">
+        <div className="flex items-center justify-center gap-4 mt-6 sm:mt-8">
           {/* Mobile Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="md:hidden group flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg hover:scale-110"
+            className="md:hidden group flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-800 border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg hover:scale-110"
             aria-label="Previous experience"
           >
-            <ChevronLeft className="h-5 w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
           </button>
 
           {/* Pagination Dots */}
@@ -475,7 +494,7 @@ const Experience: React.FC = () => {
                 aria-label={`Go to experience ${index + 1}`}
               >
                 <div
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 ${
                     currentIndex === index ? "bg-blue-400 scale-125" : "bg-gray-600 group-hover:bg-gray-500"
                   }`}
                 />
@@ -497,22 +516,22 @@ const Experience: React.FC = () => {
           {/* Mobile Navigation Arrows */}
           <button
             onClick={nextSlide}
-            className="md:hidden group flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg hover:scale-110"
+            className="md:hidden group flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-800 border border-gray-700 hover:bg-gray-700 transition-all duration-300 shadow-lg hover:scale-110"
             aria-label="Next experience"
           >
-            <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400 group-hover:text-blue-400 transition-colors duration-300" />
           </button>
         </div>
 
         {/* Current Status */}
-        <div className="text-center mt-16">
-          <div className="inline-block bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-3xl border-2 border-blue-800/20 shadow-lg">
-            <div className="p-8">
-              <h3 className="text-lg font-bold text-blue-400 mb-4 flex items-center justify-center">
-                <Award className="w-6 h-6 mr-2" />
+        <div className="text-center mt-8 sm:mt-12 lg:mt-16">
+          <div className="inline-block bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-2xl sm:rounded-3xl border-2 border-blue-800/20 shadow-lg max-w-4xl mx-auto">
+            <div className="p-3 sm:p-4 lg:p-8">
+              <h3 className="text-sm sm:text-base lg:text-lg font-bold text-blue-400 mb-2 sm:mb-4 flex items-center justify-center">
+                <Award className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 mr-2" />
                 Current Status
               </h3>
-              <p className="text-sm text-gray-400 max-w-4xl">
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed px-2 sm:px-4 lg:px-0">
                 Recent BS Information Technology Graduate (2025) • Completed Full Stack Software Engineer Internship •
                 Available for Full-time Opportunities
               </p>
