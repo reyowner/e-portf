@@ -210,7 +210,7 @@ const Hero: React.FC = () => {
         {personalInfo.background.showParticles && <FloatingParticles />}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 py-24">
         <AnimatePresence>
           {isLoaded && (
             <motion.div
