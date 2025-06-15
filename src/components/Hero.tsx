@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
         )}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 py-24">
         {/* Mobile-First Layout */}
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
           {/* Mobile Profile Image - Show at top on mobile */}
