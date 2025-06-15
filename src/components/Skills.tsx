@@ -86,7 +86,7 @@ const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className="py-20 bg-gradient-to-br from-gray-800/30 via-gray-900 to-gray-800/50"
+      className="py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
