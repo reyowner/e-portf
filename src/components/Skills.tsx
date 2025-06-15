@@ -95,7 +95,7 @@ const Skills: React.FC = () => {
             Skills & Technologies
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
-            Technical expertise gained through professional experience and hands-on development
+            Technical expertise gained through hands-on professional experience and academic background
           </p>
         </div>
 

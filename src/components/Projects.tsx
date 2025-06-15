@@ -1,14 +1,17 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ExternalLink, Github, Calendar, Users, Code, Zap, ChevronLeft, ChevronRight } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
+import LoadingSpinner from "./LoadingSpinner"
+import SkeletonLoader from "./SkeletonLoader"
 
 const Projects: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [dragOffset, setDragOffset] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const allProjects = [
     {
@@ -86,6 +89,14 @@ const Projects: React.FC = () => {
   ]
 
   const totalItems = allProjects.length
+
+  // Simulate loading state
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1500)
+    return () => clearTimeout(timer)
+  }, [])
 
   const nextSlide = () => {
     setIsDragging(true)
@@ -190,6 +201,31 @@ const Projects: React.FC = () => {
   }
 
   const swipeConfidenceThreshold = 50
+
+  if (isLoading) {
+    return (
+      <section
+        id="projects"
+        className="py-8 sm:py-12 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800"
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <SkeletonLoader className="h-12 w-64 mx-auto mb-4" />
+            <SkeletonLoader className="h-4 w-96 mx-auto" />
+          </div>
+
+          <div className="relative max-w-7xl mx-auto">
+            <div className="flex justify-center items-center min-h-[600px]">
+              <div className="flex flex-col items-center space-y-4">
+                <LoadingSpinner size="lg" />
+                <p className="text-gray-400 text-sm">Loading projects...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section id="projects" className="py-8 sm:py-12 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800">
@@ -393,7 +429,7 @@ const Projects: React.FC = () => {
                             </div>
                           </div>
 
-                          {/* Links */}
+                          {/* Links with loading states */}
                           <motion.div
                             className="flex flex-wrap gap-2 sm:gap-3"
                             initial={{ opacity: 0, y: 20 }}
@@ -408,6 +444,18 @@ const Projects: React.FC = () => {
                                 className="text-xs sm:text-sm group inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 lg:px-5 lg:py-3 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
+                                onClick={(e) => {
+                                  if (project.liveUrl !== "#") {
+                                    // Show loading state for external links
+                                    const button = e.currentTarget
+                                    const originalContent = button.innerHTML
+                                    button.innerHTML =
+                                      '<div class="flex items-center"><div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>Loading...</div>'
+                                    setTimeout(() => {
+                                      button.innerHTML = originalContent
+                                    }, 2000)
+                                  }
+                                }}
                               >
                                 <ExternalLink className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 group-hover:rotate-12 transition-transform duration-300" />
                                 {project.liveUrl === "#" ? "You're Here!" : "Live Demo"}
