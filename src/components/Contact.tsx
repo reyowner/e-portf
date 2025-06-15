@@ -67,8 +67,8 @@ const Contact: React.FC = () => {
 
     try {
       await emailjs.send(
-        "service_1y4uagr", // Service ID
-        "template_sd87jyc", // Template ID
+        "service_1y4uagr",
+        "template_sd87jyc",
         {
           name: formData.name,
           email: formData.email,
@@ -81,7 +81,7 @@ const Contact: React.FC = () => {
             .toUpperCase(),
           time: new Date().toLocaleString(),
         },
-        "J1iypjLPkmIVIeREW", // Public Key
+        "J1iypjLPkmIVIeREW",
       )
 
       setSubmitStatus("success")
@@ -94,32 +94,27 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <section
-      id="contact"
-      className="py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800"
-    >
+    <section id="contact" className="py-8 sm:py-12 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Let's Connect
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
             Ready to start and available for any opportunities you can offer.
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
+        <div className="max-w-6xl mx-auto space-y-6 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-12">
           {/* Contact Form */}
-          <div className="bg-gray-800 rounded-2xl shadow-sm border border-gray-700 p-8">
-            <h3 className="text-2xl font-bold text-white mb-6">
-              Send a Message
-            </h3>
+          <div className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-sm border border-gray-700 p-4 sm:p-6 lg:p-8 order-2 lg:order-1">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 sm:mb-6">Send a Message</h3>
 
             {submitStatus === "success" && (
-              <div className="mb-6 p-4 rounded-xl bg-green-900/20 border border-green-800">
+              <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-green-900/20 border border-green-800">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
-                  <span className="text-green-300 font-medium">
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-400 mr-2 flex-shrink-0" />
+                  <span className="text-green-300 font-medium text-sm sm:text-base">
                     Message sent successfully! I'll get back to you soon.
                   </span>
                 </div>
@@ -127,18 +122,18 @@ const Contact: React.FC = () => {
             )}
 
             {submitStatus === "error" && (
-              <div className="mb-6 p-4 rounded-xl bg-red-900/20 border border-red-800">
+              <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-red-900/20 border border-red-800">
                 <div className="flex items-center">
-                  <MessageSquare className="h-5 w-5 text-red-400 mr-2" />
-                  <span className="text-red-300 font-medium">
+                  <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5 text-red-400 mr-2 flex-shrink-0" />
+                  <span className="text-red-300 font-medium text-sm sm:text-base">
                     Failed to send message. Please try again or contact me directly.
                   </span>
                 </div>
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Full Name
@@ -149,7 +144,7 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                     placeholder="Your name"
                   />
                 </div>
@@ -164,7 +159,7 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
+                    className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -179,7 +174,7 @@ const Contact: React.FC = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
+                  className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200 text-sm sm:text-base"
                   placeholder="What's this about?"
                 />
               </div>
@@ -194,14 +189,14 @@ const Contact: React.FC = () => {
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200 resize-none"
+                  className="w-full px-3 py-2.5 sm:px-4 sm:py-3 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200 resize-none text-sm sm:text-base"
                   placeholder="Your message..."
                 />
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-4 py-3 sm:px-6 sm:py-3.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
@@ -209,33 +204,31 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="bg-gray-800 rounded-2xl shadow-sm border border-gray-700 p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Contact Information
-              </h3>
-              <div className="space-y-6">
+          <div className="space-y-6 lg:space-y-8 order-1 lg:order-2">
+            <div className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-sm border border-gray-700 p-4 sm:p-6 lg:p-8">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 sm:mb-6">Contact Information</h3>
+              <div className="space-y-4 sm:space-y-6">
                 {contactInfo.map((info, index) => (
                   <div
                     key={index}
-                    className="flex items-start space-x-4 p-4 py-0.5 rounded-xl hover:bg-gray-700/30 transition-colors duration-200"
+                    className="flex items-start space-x-3 sm:space-x-4 p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-gray-700/30 transition-colors duration-200"
                   >
-                    <div className={`w-10 h-10 rounded-lg bg-gray-700 flex items-center justify-center`}>
-                      <info.icon className={`h-5 w-5 ${info.color}`} />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gray-700 flex items-center justify-center flex-shrink-0">
+                      <info.icon className={`h-4 w-4 sm:h-5 sm:w-5 ${info.color}`} />
                     </div>
-                    <div>
-                      <p className="font-medium text-white">{info.label}</p>
+                    <div className="min-w-0 flex-1">
+                      <p className="font-medium text-white text-sm sm:text-base">{info.label}</p>
                       {info.href ? (
                         <a
                           href={info.href}
                           target={info.href.startsWith("http") ? "_blank" : undefined}
                           rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                          className="text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                          className="text-blue-400 hover:text-blue-300 transition-colors duration-200 text-sm sm:text-base break-all"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-gray-400">{info.value}</p>
+                        <p className="text-gray-400 text-sm sm:text-base">{info.value}</p>
                       )}
                     </div>
                   </div>
@@ -243,20 +236,18 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-gray-800 rounded-2xl shadow-sm border border-gray-700 p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Current Status
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
+            <div className="bg-gray-800 rounded-xl sm:rounded-2xl shadow-sm border border-gray-700 p-4 sm:p-6 lg:p-8">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 sm:mb-6">Current Status</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {availability.map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-center space-x-3 p-3 rounded-lg bg-gray-700/30"
+                    className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 rounded-lg bg-gray-700/30"
                   >
-                    <item.icon className={`h-4 w-4 ${item.color}`} />
-                    <div>
-                      <p className="text-sm text-gray-400">{item.label}</p>
-                      <p className="font-medium text-white">{item.value}</p>
+                    <item.icon className={`h-4 w-4 ${item.color} flex-shrink-0`} />
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs sm:text-sm text-gray-400">{item.label}</p>
+                      <p className="font-medium text-white text-sm sm:text-base">{item.value}</p>
                     </div>
                   </div>
                 ))}
