@@ -75,7 +75,7 @@ const Navbar = () => {
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200/20 dark:border-gray-700/20"
+            ? "bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-700/20"
             : "bg-transparent"
         }`}
       >
@@ -83,7 +83,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link
-              href="/"
+              href="#"
               className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200"
             >
               Ren
@@ -102,8 +102,8 @@ const Navbar = () => {
                     onClick={() => handleNavClick(link.href)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
-                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
+                        ? "bg-blue-900/30 text-blue-400"
+                        : "text-gray-300 hover:text-blue-400 hover:bg-gray-800/50"
                     }`}
                   >
                     {link.label}
@@ -114,11 +114,11 @@ const Navbar = () => {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-colors duration-200"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-800/50 transition-colors duration-200"
               onClick={() => setSidebarOpen(true)}
               aria-label="Open menu"
             >
-              <Menu className="h-6 w-6 text-gray-900 dark:text-white" />
+              <Menu className="h-6 w-6 text-white" />
             </button>
           </div>
         </div>
@@ -130,20 +130,20 @@ const Navbar = () => {
           <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300" />
           <aside
             id="mobile-sidebar"
-            className="fixed top-0 right-0 h-full w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-2xl z-50 transform transition-transform duration-300 ease-out"
+            className="fixed top-0 right-0 h-full w-80 bg-gray-900/95 backdrop-blur-md shadow-2xl z-50 transform transition-transform duration-300 ease-out"
           >
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200/20 dark:border-gray-700/20">
+              <div className="flex items-center justify-between p-6 border-b border-gray-700/20">
                 <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Navigation
                 </span>
                 <button
-                  className="p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-colors duration-200"
+                  className="p-2 rounded-lg hover:bg-gray-800/50 transition-colors duration-200"
                   onClick={() => setSidebarOpen(false)}
                   aria-label="Close menu"
                 >
-                  <X className="h-5 w-5 text-gray-900 dark:text-white" />
+                  <X className="h-5 w-5 text-white" />
                 </button>
               </div>
 
@@ -161,8 +161,8 @@ const Navbar = () => {
                         onClick={() => handleNavClick(link.href)}
                         className={`w-full text-left px-4 py-3 rounded-xl text-lg font-medium transition-all duration-200 ${
                           isActive
-                            ? "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 shadow-sm"
-                            : "text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
+                            ? "bg-blue-900/30 text-blue-400 shadow-sm"
+                            : "text-white hover:text-blue-400 hover:bg-gray-800/50"
                         }`}
                       >
                         {link.label}
@@ -171,11 +171,7 @@ const Navbar = () => {
                   })}
                 </div>
               </nav>
-
-              {/* Footer */}
-              <div className="p-6 border-t border-gray-200/20 dark:border-gray-700/20">
-                <p className="text-sm text-gray-600 dark:text-gray-400 text-center">Ready for new opportunities</p>
-              </div>
+              
             </div>
           </aside>
         </>

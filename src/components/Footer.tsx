@@ -9,7 +9,7 @@ const Footer = () => {
       icon: Github,
       href: "https://github.com/reyowner",
       label: "GitHub",
-      color: "hover:text-gray-900 dark:hover:text-white",
+      color: "hover:text-white",
     },
     {
       icon: Linkedin,
@@ -61,8 +61,8 @@ const Footer = () => {
                   Renato Reoner Jr.
                 </h3>
                 <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                  Full Stack Developer passionate about creating innovative solutions with modern web technologies.
-                  Ready to contribute to your next project.
+                  BS Information Technology Graduate passionate about creating innovative solutions with 
+                  modern technologies.
                 </p>
               </div>
 
@@ -151,7 +151,7 @@ const Footer = () => {
                 <span>&copy; {currentYear} Renato Reoner Jr. All rights reserved.</span>
                 <div className="hidden md:flex items-center space-x-2">
                   <Coffee className="h-4 w-4" />
-                  <span>Crafted with passion</span>
+                  <span>Crafted with a lot of coffee</span>
                 </div>
               </div>
 

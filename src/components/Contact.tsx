@@ -22,7 +22,6 @@ const Contact: React.FC = () => {
       value: "domasigreoner@gmail.com",
       href: "mailto:domasigreoner@gmail.com",
       color: "text-blue-500",
-      description: "Best way to reach me",
     },
     {
       icon: Phone,
@@ -30,7 +29,6 @@ const Contact: React.FC = () => {
       value: "+63 967 205 4484",
       href: "tel:+639672054484",
       color: "text-green-500",
-      description: "Available during business hours",
     },
     {
       icon: MapPin,
@@ -38,7 +36,6 @@ const Contact: React.FC = () => {
       value: "Taguig, Metro Manila, Philippines",
       href: null,
       color: "text-red-500",
-      description: "Open to remote, hybrid, or on-site",
     },
     {
       icon: Linkedin,
@@ -46,7 +43,6 @@ const Contact: React.FC = () => {
       value: "linkedin.com/in/rreonerjr",
       href: "https://linkedin.com/in/rreonerjr",
       color: "text-blue-600",
-      description: "Professional network",
     },
   ]
 
@@ -100,30 +96,30 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800"
+      className="py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Let's Connect
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Ready to start immediately and available for full-time software development opportunities.
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <div className="bg-gray-800 rounded-2xl shadow-sm border border-gray-700 p-8">
+            <h3 className="text-2xl font-bold text-white mb-6">
               Send a Message
             </h3>
 
             {submitStatus === "success" && (
-              <div className="mb-6 p-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800">
+              <div className="mb-6 p-4 rounded-xl bg-green-900/20 border border-green-800">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400 mr-2" />
-                  <span className="text-green-800 dark:text-green-300 font-medium">
+                  <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+                  <span className="text-green-300 font-medium">
                     Message sent successfully! I'll get back to you soon.
                   </span>
                 </div>
@@ -131,10 +127,10 @@ const Contact: React.FC = () => {
             )}
 
             {submitStatus === "error" && (
-              <div className="mb-6 p-4 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800">
+              <div className="mb-6 p-4 rounded-xl bg-red-900/20 border border-red-800">
                 <div className="flex items-center">
-                  <MessageSquare className="h-5 w-5 text-red-600 dark:text-red-400 mr-2" />
-                  <span className="text-red-800 dark:text-red-300 font-medium">
+                  <MessageSquare className="h-5 w-5 text-red-400 mr-2" />
+                  <span className="text-red-300 font-medium">
                     Failed to send message. Please try again or contact me directly.
                   </span>
                 </div>
@@ -144,7 +140,7 @@ const Contact: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Full Name
                   </label>
                   <input
@@ -153,12 +149,12 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email Address
                   </label>
                   <input
@@ -168,13 +164,13 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
                     placeholder="your.email@example.com"
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                   Subject
                 </label>
                 <input
@@ -183,12 +179,12 @@ const Contact: React.FC = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200"
                   placeholder="What's this about?"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
@@ -198,7 +194,7 @@ const Contact: React.FC = () => {
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-all duration-200 resize-none"
+                  className="w-full px-4 py-2.5 rounded-lg border border-gray-700 bg-gray-800 text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-200 resize-none"
                   placeholder="Your message..."
                 />
               </div>
@@ -214,54 +210,53 @@ const Contact: React.FC = () => {
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <div className="bg-gray-800 rounded-2xl shadow-sm border border-gray-700 p-8">
+              <h3 className="text-2xl font-bold text-white mb-6">
                 Contact Information
               </h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div
                     key={index}
-                    className="flex items-start space-x-4 p-4 py-0.5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors duration-200"
+                    className="flex items-start space-x-4 p-4 py-0.5 rounded-xl hover:bg-gray-700/30 transition-colors duration-200"
                   >
-                    <div className={`w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center`}>
+                    <div className={`w-10 h-10 rounded-lg bg-gray-700 flex items-center justify-center`}>
                       <info.icon className={`h-5 w-5 ${info.color}`} />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900 dark:text-white">{info.label}</p>
+                      <p className="font-medium text-white">{info.label}</p>
                       {info.href ? (
                         <a
                           href={info.href}
                           target={info.href.startsWith("http") ? "_blank" : undefined}
                           rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                          className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
+                          className="text-blue-400 hover:text-blue-300 transition-colors duration-200"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-gray-600 dark:text-gray-400">{info.value}</p>
+                        <p className="text-gray-400">{info.value}</p>
                       )}
-                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{info.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <div className="bg-gray-800 rounded-2xl shadow-sm border border-gray-700 p-8">
+              <h3 className="text-2xl font-bold text-white mb-6">
                 Current Status
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 {availability.map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-center space-x-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-700/30"
+                    className="flex items-center space-x-3 p-3 rounded-lg bg-gray-700/30"
                   >
                     <item.icon className={`h-4 w-4 ${item.color}`} />
                     <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
-                      <p className="font-medium text-gray-900 dark:text-white">{item.value}</p>
+                      <p className="text-sm text-gray-400">{item.label}</p>
+                      <p className="font-medium text-white">{item.value}</p>
                     </div>
                   </div>
                 ))}

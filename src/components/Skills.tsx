@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Code, Database, Wrench, Users, Award } from "lucide-react"
+import { Code2, Database, Server, Users, Plus } from "lucide-react"
 
 const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("frontend")
@@ -10,7 +10,7 @@ const Skills: React.FC = () => {
   const skillCategories = {
     frontend: {
       title: "Frontend Development",
-      icon: Code,
+      icon: Code2,
       color: "from-blue-500 to-cyan-500",
       skills: [
         { name: "React.js", level: 85 },
@@ -35,7 +35,7 @@ const Skills: React.FC = () => {
     },
     tools: {
       title: "Tools & Development",
-      icon: Wrench,
+      icon: Server,
       color: "from-purple-500 to-pink-500",
       skills: [
         { name: "Git/GitHub", level: 85 },
@@ -72,7 +72,7 @@ const Skills: React.FC = () => {
 
   // Custom Progress component
   const Progress = ({ value, color }: { value: number; color: string }) => (
-    <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+    <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-700">
       <div
         className={`h-full bg-gradient-to-r ${color} transition-all duration-1000 ease-out`}
         style={{ width: `${value}%` }}
@@ -86,37 +86,36 @@ const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className="py-20 bg-gradient-to-br from-gray-50/50 via-white to-purple-50/30 dark:from-gray-800/30 dark:via-gray-900 dark:to-gray-800/50"
+      className="py-20 bg-gradient-to-br from-gray-800/30 via-gray-900 to-gray-800/50"
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
             Skills & Technologies
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Technical expertise gained through professional experience and hands-on development
           </p>
         </div>
 
         {/* Category Navigation */}
         <div className="flex justify-center mb-10">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-3 border border-gray-200 dark:border-gray-700 shadow-lg">
+          <div className="bg-gray-800 rounded-2xl p-2.5 border border-gray-700 shadow-lg">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {Object.entries(skillCategories).map(([key, category]) => {
-                const Icon = category.icon
+                const CategoryIcon = category.icon
                 return (
                   <button
                     key={key}
                     onClick={() => setActiveCategory(key)}
-                    className={`flex items-center px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                    className={`flex items-center justify-center px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
                       activeCategory === key
-                        ? `bg-gradient-to-r ${category.color} text-white shadow-md`
-                        : "text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        ? "bg-blue-600 text-white shadow-lg transform scale-105"
+                        : "text-gray-400 hover:text-blue-400 hover:bg-gray-700/50"
                     }`}
                   >
-                    <Icon className="w-5 h-5 mr-2" />
-                    <span className="hidden sm:inline">{category.title.split(" ")[0]}</span>
-                    <span className="sm:hidden">{category.title.split(" ")[0].slice(0, 4)}</span>
+                    <CategoryIcon className="w-4 h-4 mr-2" />
+                    {category.title}
                   </button>
                 )
               })}
@@ -124,32 +123,32 @@ const Skills: React.FC = () => {
           </div>
         </div>
 
-        {/* Skills Display */}
-        <div className="max-w-5xl mx-auto mb-12">
-          <div className="bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg overflow-hidden">
+        {/* Skills Content */}
+        <div className="max-w-6xl mx-auto mb-12">
+          <div className="bg-gray-800 rounded-3xl border border-gray-700 shadow-lg overflow-hidden">
             {/* Category Header */}
-            <div className={`bg-gradient-to-r ${currentCategory.color} p-8 text-white`}>
+            <div className={`bg-gradient-to-r ${currentCategory.color} p-8 py-6 text-white`}>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4">
-                  <CategoryIcon className="h-6 w-6" />
+                <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mr-4">
+                  <CategoryIcon className="h-5 w-5" />
                 </div>
-                <h3 className="text-2xl font-bold">{currentCategory.title}</h3>
+                <h3 className="text-xl font-bold">{currentCategory.title}</h3>
               </div>
             </div>
 
             {/* Skills Grid */}
-            <div className="p-8">
+            <div className="p-8 py-6">
               <div className="grid md:grid-cols-2 gap-6">
                 {currentCategory.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="group p-5 rounded-xl bg-gray-50 dark:bg-gray-700/30 hover:bg-white dark:hover:bg-gray-700/50 border border-gray-200 dark:border-gray-600 hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300"
+                    className="group p-4 rounded-xl bg-gray-700/30 hover:bg-blue-900/20 border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300"
                   >
                     <div className="flex justify-between items-center mb-3">
-                      <h4 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      <h4 className="text-md font-medium text-white group-hover:text-blue-400 transition-colors duration-300">
                         {skill.name}
                       </h4>
-                      <div className="text-base font-medium text-blue-600 dark:text-blue-400">{skill.level}%</div>
+                      <div className="text-sm font-medium text-blue-400">{skill.level}%</div>
                     </div>
                     <Progress value={skill.level} color={currentCategory.color} />
                   </div>
@@ -160,29 +159,30 @@ const Skills: React.FC = () => {
         </div>
 
         {/* Additional Skills */}
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800/50 dark:to-gray-900/50 rounded-3xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-3xl border border-gray-700/50 shadow-lg overflow-hidden">
             <div className="p-8">
-              <div className="flex items-center mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
-                  <Award className="h-5 w-5 text-white" />
+              <div className="flex items-center space-x-4 mb-8">
+                <div className="w-12 h-12 bg-blue-900/20 rounded-xl flex items-center justify-center">
+                  <Plus className="h-6 w-6 text-blue-400" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Additional Skills</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Complementary skills and competencies</p>
+                  <h3 className="text-lg font-bold text-white">Additional Skills</h3>
+                  <p className="text-sm text-gray-400 mt-1">Complementary skills and competencies</p>
                 </div>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {additionalSkills.map((skill, index) => (
                   <div
                     key={index}
-                    className="group p-4 rounded-xl bg-white dark:bg-gray-800 hover:bg-blue-50 dark:hover:bg-blue-900/20 border border-gray-200 dark:border-gray-700 hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300 hover:shadow-md"
+                    className="group p-4 rounded-xl bg-gray-800 hover:bg-blue-900/20 border border-gray-700 hover:border-blue-500/30 transition-all duration-300 hover:shadow-md"
                   >
-                    <div className="font-medium text-base text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    <div className="font-medium text-sm text-white group-hover:text-blue-400 transition-colors duration-300">
                       {skill.name}
                     </div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 mt-1 flex items-center">
-                      <span className="w-1.5 h-1.5 bg-blue-500/50 dark:bg-blue-400/50 rounded-full mr-2"></span>
+                    <div className="text-xs text-gray-400 mt-1 flex items-center">
+                      <span className="w-1.5 h-1.5 bg-blue-500/50 rounded-full mr-2"></span>
                       {skill.category}
                     </div>
                   </div>
