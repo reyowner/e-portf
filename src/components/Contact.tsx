@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Mail, Phone, MapPin, Linkedin, Send, CheckCircle, Clock, Globe, MessageSquare } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, CheckCircle, Clock, Globe, MessageSquare } from "lucide-react"
 import emailjs from "emailjs-com"
 
 const Contact: React.FC = () => {
@@ -90,7 +90,7 @@ const Contact: React.FC = () => {
 
       setSubmitStatus("success")
       setFormData({ name: "", email: "", subject: "", message: "" })
-    } catch (error) {
+    } catch {
       setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)
