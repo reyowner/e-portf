@@ -1,14 +1,17 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Calendar, MapPin, Building, Award, Users, Code, ChevronLeft, ChevronRight } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
+import LoadingSpinner from "./LoadingSpinner"
+import SkeletonLoader from "./SkeletonLoader"
 
 const Experience: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [dragOffset, setDragOffset] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const allExperiences = [
     {
@@ -98,6 +101,14 @@ const Experience: React.FC = () => {
   ]
 
   const totalItems = allExperiences.length
+
+  // Simulate loading state
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1200)
+    return () => clearTimeout(timer)
+  }, [])
 
   const handleNavigation = (newIndex: number) => {
     if (newIndex !== currentIndex) {
@@ -226,6 +237,31 @@ const Experience: React.FC = () => {
 
   const swipeConfidenceThreshold = 50
 
+  if (isLoading) {
+    return (
+      <section
+        id="experience"
+        className="py-8 sm:py-12 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800"
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <SkeletonLoader className="h-12 w-80 mx-auto mb-4" />
+            <SkeletonLoader className="h-4 w-96 mx-auto" />
+          </div>
+
+          <div className="relative max-w-7xl mx-auto">
+            <div className="flex justify-center items-center min-h-[600px]">
+              <div className="flex flex-col items-center space-y-4">
+                <LoadingSpinner size="lg" />
+                <p className="text-gray-400 text-sm">Loading experience...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section
       id="experience"
@@ -237,7 +273,7 @@ const Experience: React.FC = () => {
             Professional Journey
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
-            My educational background, professional development, and progressive growth in software development
+            My educational background, professional development, and overall progressive growth in the field of IT
           </p>
         </div>
 
