@@ -68,8 +68,8 @@ const Contact: React.FC = () => {
   ]
 
   const availability = [
-    { icon: CheckCircle, label: "Status", value: "Available", color: "text-green-600", bgColor: "bg-green-600/10" },
-    { icon: Clock, label: "Notice Period", value: "Immediate", color: "text-blue-600", bgColor: "bg-blue-600/10" },
+    { icon: CheckCircle, label: "Status", value: "Employed (Not Available)", color: "text-gray-400", bgColor: "bg-gray-600/10" },
+    { icon: Clock, label: "Notice Period", value: "Not accepting new offers", color: "text-gray-400", bgColor: "bg-gray-600/10" },
     {
       icon: Globe,
       label: "Work Preference",
@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
     {
       icon: MessageSquare,
       label: "Open to",
-      value: "Full-time opportunities",
+      value: "Currently not open to new opportunities",
       color: "text-orange-600",
       bgColor: "bg-orange-600/10",
     },
@@ -200,7 +200,7 @@ const Contact: React.FC = () => {
             Let's Connect
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
-            Ready to start and available for any opportunities you can offer
+            Currently employed as Fullstack Engineer (Contractual) at Oaktree Global. Not available for new opportunities.
           </p>
         </motion.div>
 

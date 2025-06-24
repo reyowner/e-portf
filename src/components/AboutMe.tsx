@@ -18,10 +18,10 @@ const About: React.FC = () => {
     {
       icon: Briefcase,
       label: "Recent Experience",
-      value: "Full Stack Software Engineer Intern at Oaktree Innovations",
+      value: "Fullstack Engineer",
       color: "text-green-500",
     },
-    { icon: User, label: "Status", value: "Available for full-time opportunities", color: "text-purple-500" },
+    { icon: User, label: "Status", value: "Currently employed (Not Available)", color: "text-purple-500" },
   ]
 
   const values = [

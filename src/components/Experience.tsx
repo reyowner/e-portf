@@ -77,6 +77,33 @@ const Experience: React.FC = () => {
       ],
     },
     {
+      title: "Fullstack Engineer",
+      company: "Oaktree Innovations / Oaktree Global",
+      duration: "July 2025 - Present",
+      location: "Remote",
+      type: "Contractual",
+      status: "Current",
+      category: "Professional Experience",
+      description:
+        "Currently working as a Fullstack Engineer (Contractual) at Oaktree Innovations/Global. Responsible for end-to-end web application development, collaborating with cross-functional teams, and delivering high-quality solutions. Monthly Net Salary: Php 22,000.00.",
+      achievements: [
+        "Joined Oaktree Innovations/Global as Fullstack Engineer (Contractual) starting July 2025",
+        "Developing and maintaining scalable web applications using modern technologies",
+        "Collaborating with designers, product managers, and other engineers to deliver robust solutions",
+        "Implementing best practices in code quality, testing, and deployment",
+        "Contributing to both frontend and backend development tasks",
+        "Participating in code reviews and agile ceremonies",
+        "Delivering features on time and ensuring client satisfaction",
+      ],
+      technologies: ["React.js", "Next.js", "TypeScript", "Node.js", "FastAPI", "PostgreSQL", "Git", "Agile Development"],
+      highlights: [
+        "Current contractual employment",
+        "Php 22,000.00 monthly net salary",
+        "Fullstack web development",
+        "Professional growth at Oaktree Innovations/Global",
+      ],
+    },
+    {
       title: "Data Entry Clerk",
       company: "Nelpa Lifesciences Inc.",
       duration: "February 2021 - March 2021",
@@ -568,8 +595,7 @@ const Experience: React.FC = () => {
                 Current Status
               </h3>
               <p className="text-xs sm:text-sm text-gray-400 leading-relaxed px-2 sm:px-4 lg:px-0">
-                Recent BS Information Technology Graduate (2025) • Completed Full Stack Software Engineer Internship •
-                Available for Full-time Opportunities
+                Recent BS Information Technology Graduate (2025) • Currently employed as Fullstack Engineer (Contractual) at Oaktree Global (since July 2025)
               </p>
             </div>
           </div>

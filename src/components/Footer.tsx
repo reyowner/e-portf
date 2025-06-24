@@ -133,9 +133,9 @@ const Footer = () => {
                   <p className="text-gray-300">Taguig, Metro Manila, Philippines</p>
                 </div>
                 <div className="pt-4">
-                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-900/30 border border-green-800/50 text-green-300 text-sm">
-                    <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                    Available for opportunities
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-orange-900/30 border border-orange-800/50 text-orange-300 text-sm">
+                    <div className="w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></div>
+                    Currently employed at Oaktree Global
                   </div>
                 </div>
               </div>
