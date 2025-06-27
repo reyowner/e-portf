@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# e-Portfolio – Renato Reoner Jr.
 
-## Getting Started
+A modern, responsive e-Portfolio built with Next.js, React, and Tailwind CSS. This project showcases my professional experience, projects, skills, and contact information in a visually engaging and interactive format.
 
-First, run the development server:
+## 🚀 Features
+- Animated hero section with dynamic typing and background effects
+- About Me with quick facts, values, and work style
+- Projects carousel highlighting professional and personal work
+- Skills section with categorized progress bars and additional skills
+- Experience carousel with academic, professional, and early work history
+- Contact form with real-time validation and EmailJS integration
+- Responsive navigation bar and footer with social/contact links
+- Smooth scrolling, glassmorphism, and modern UI/UX
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠️ Tech Stack
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Frontend:** [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Email:** [EmailJS](https://www.emailjs.com/)
+- **Linting:** ESLint
+
+## 📁 Project Structure
+```
+e-portf/
+├── public/                # Static assets (profile image, resume)
+├── src/
+│   ├── app/               # Next.js app entry, layout, global styles
+│   └── components/        # All UI components (see below)
+├── package.json           # Project metadata and scripts
+├── tsconfig.json          # TypeScript configuration
+├── tailwind.config.js     # Tailwind CSS config (if present)
+├── postcss.config.mjs     # PostCSS config
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Main Components (src/components)
+- **Hero.tsx**: Animated introduction, profile, and quick links
+- **AboutMe.tsx**: Story, quick facts, values, and work style
+- **Projects.tsx**: Carousel of featured projects (personal, professional)
+- **Skills.tsx**: Categorized technical and soft skills with progress bars
+- **Experience.tsx**: Carousel of academic, professional, and early work experiences
+- **Contact.tsx**: Contact form (EmailJS), contact info, and current status
+- **Navbar.tsx**: Responsive navigation bar with scroll tracking
+- **Footer.tsx**: Social links, quick links, contact info, and copyright
+- **LoadingSpinner.tsx**: Animated loading spinner (used in carousels/loaders)
+- **SkeletonLoader.tsx**: Skeleton placeholder for loading states
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Configuration
+- **TypeScript**: Strict mode, path aliases (`@/*` → `src/*`)
+- **ESLint**: Linting for code quality
+- **Tailwind CSS**: Utility-first styling
+- **Framer Motion**: Animations and transitions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📦 Available Scripts
+In the project directory, you can run:
 
-## Learn More
+```bash
+npm run dev      # Start development server (localhost:3000)
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🖼️ Assets
+- `public/profile-konato.jpg`: Profile image
+- `public/RReoner_Resume.pdf`: Downloadable resume
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 How to Use
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+3. **Open** [http://localhost:3000](http://localhost:3000) **in your browser.**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 Deployment
+Deploy easily on [Vercel](https://vercel.com/) or any platform supporting Next.js. See [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📬 Contact
+- **Email:** domasigreoner@gmail.com
+- **LinkedIn:** [linkedin.com/in/rreonerjr](https://linkedin.com/in/rreonerjr)
+- **GitHub:** [github.com/reyowner](https://github.com/reyowner)

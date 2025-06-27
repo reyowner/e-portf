@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
   const roles = useMemo(
-    () => ["Developer", "BS Information Technology", "Problem Solver", "Adaptable", "Fast Learner"],
+    () => ["Full Stack Developer", "BS Information Technology", "Problem Solver", "Adaptable", "Fast Learner"],
     [],
   )
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
@@ -22,13 +22,13 @@ const Hero: React.FC = () => {
   const personalInfo = {
     name: "Renato Reoner Jr.",
     nickname: "Ren",
-    title: "Full Stack Developer",
+    title: "Fullstack Engineer",
     location: "Taguig, Metro Manila, Philippines",
-    experience: "3 months professional experience",
-    company: "Oaktree Innovations",
-    status: "Available for full-time opportunities",
+    experience: "Fullstack Engineer since July 2025",
+    company: "Oaktree Global",
+    status: "Not Available",
     profileImage: {
-      src: "/profile-hehe.jpg",
+      src: "/profile-konato.jpg",
       alt: "DP",
       showImage: true,
     },
@@ -233,8 +233,8 @@ const Hero: React.FC = () => {
                     transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
                   />
                   <Image
-                    src="/profile-hehe.jpg"
-                    alt="DP"
+                    src={personalInfo.profileImage.src}
+                    alt={personalInfo.profileImage.alt}
                     width={120}
                     height={120}
                     className="relative w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-2xl border-2 border-gray-700/50 shadow-lg mx-auto"
@@ -259,12 +259,12 @@ const Hero: React.FC = () => {
                   whileHover={{ scale: 1.05, borderColor: "rgb(34 197 94)" }}
                 >
                   <motion.div
-                    className="w-2 h-2 bg-green-400 rounded-full mr-2"
+                    className="w-2 h-2 bg-orange-400 rounded-full mr-2"
                     animate={{ scale: [1, 1.3, 1], opacity: [1, 0.7, 1] }}
                     transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                   />
                   <span className="hidden sm:inline">{personalInfo.status}</span>
-                  <span className="sm:hidden">Available for opportunities</span>
+                  <span className="sm:hidden">Currently employed as Fullstack Engineer at Oaktree Global (Not Available)</span>
                   <Sparkles className="w-3 h-3 ml-2 text-yellow-400" />
                 </motion.div>
 
@@ -315,8 +315,8 @@ const Hero: React.FC = () => {
                             transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
                           />
                           <Image
-                            src="/profile-hehe.jpg"
-                            alt="DP"
+                            src={personalInfo.profileImage.src}
+                            alt={personalInfo.profileImage.alt}
                             width={200}
                             height={200}
                             className="relative w-32 h-32 lg:w-40 lg:h-40 object-cover rounded-3xl border-2 border-gray-700/50 shadow-md"
@@ -356,7 +356,7 @@ const Hero: React.FC = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.2 }}
                 >
-                  Recent BS IT Graduate with {personalInfo.experience} at {personalInfo.company}. Passionate about
+                  Recent BS IT Graduate as {personalInfo.experience} at {personalInfo.company}. Passionate about
                   creating user-centered solutions with modern web technologies.
                 </motion.p>
 
@@ -382,14 +382,14 @@ const Hero: React.FC = () => {
                     whileHover={{ scale: 1.05, backgroundColor: "rgba(34, 197, 94, 0.1)" }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-green-400 flex-shrink-0" />
-                    <span className="text-gray-300 text-xs sm:text-sm">Available Now</span>
+                    <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-orange-400 flex-shrink-0" />
+                    <span className="text-gray-300 text-xs sm:text-sm">Employed (Not Available)</span>
                   </motion.div>
                 </motion.div>
 
                 {/* Enhanced Action Buttons */}
                 <motion.div
-                  className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start px-4 sm:px-0"
+                  className="flex flex-row sm:flex-row gap-3 justify-center lg:justify-start px-4 sm:px-0"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.6 }}
@@ -504,7 +504,7 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 2.6 }}
                       >
-                        status: <span className="text-green-400">"Recent Graduate"</span>,
+                        status: <span className="text-green-400">"Employed (Not Available)"</span>,
                       </motion.div>
                       <motion.div
                         className="ml-4 text-gray-300"
@@ -544,7 +544,7 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 4.2 }}
                       >
-                        available: <span className="text-blue-400">true</span>
+                        available: <span className="text-blue-400">false</span>
                       </motion.div>
                       <motion.div
                         className="text-blue-400"

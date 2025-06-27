@@ -568,8 +568,7 @@ const Experience: React.FC = () => {
                 Current Status
               </h3>
               <p className="text-xs sm:text-sm text-gray-400 leading-relaxed px-2 sm:px-4 lg:px-0">
-                Recent BS Information Technology Graduate (2025) • Completed Full Stack Software Engineer Internship •
-                Available for Full-time Opportunities
+                Recent BS Information Technology Graduate (2025) • Currently employed as Fullstack Engineer (Contractual) at Oaktree Global (since July 2025)
               </p>
             </div>
           </div>
