@@ -121,36 +121,6 @@ const Projects: React.FC = () => {
       },
     },
     {
-      title: "E-Portfolio Website",
-      duration: "June 2025 - Present",
-      type: "Personal Project",
-      category: "Frontend Development",
-      description:
-        "A modern, responsive portfolio website built with Next.js and React that you're currently viewing. Features dynamic animations, contact form integration, pagination, and optimized performance. Showcases my projects, skills, and professional journey with an emphasis on user experience and modern design principles.",
-      features: [
-        "Responsive design with Tailwind CSS",
-        "Dynamic typing animations and interactive elements",
-        "Contact form with EmailJS integration",
-        "Smooth scrolling navigation and pagination",
-        "SEO optimized and performance focused",
-        "Modern UI/UX with glassmorphism effects",
-      ],
-      technologies: [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "EmailJS",
-      ],
-      liveUrl: "#",
-      githubUrl: "https://github.com/reyowner/e-portf",
-      stats: {
-        duration: "Ongoing",
-        team: "Individual",
-        status: "Ongoing",
-      },
-    },
-    {
       title: "Black Rose - Community Esports Platform",
       duration: "Ongoing",
       type: "Voluntary Community Work",
@@ -179,6 +149,36 @@ const Projects: React.FC = () => {
         duration: "Ongoing",
         team: "Team",
         status: "Active Development",
+      },
+    },
+    {
+      title: "E-Portfolio Website",
+      duration: "June 2025 - Present",
+      type: "Personal Project",
+      category: "Frontend Development",
+      description:
+        "A modern, responsive portfolio website built with Next.js and React that you're currently viewing. Features dynamic animations, contact form integration, pagination, and optimized performance. Showcases my projects, skills, and professional journey with an emphasis on user experience and modern design principles.",
+      features: [
+        "Responsive design with Tailwind CSS",
+        "Dynamic typing animations and interactive elements",
+        "Contact form with EmailJS integration",
+        "Smooth scrolling navigation and pagination",
+        "SEO optimized and performance focused",
+        "Modern UI/UX with glassmorphism effects",
+      ],
+      technologies: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "EmailJS",
+      ],
+      liveUrl: "#",
+      githubUrl: "https://github.com/reyowner/e-portf",
+      stats: {
+        duration: "Ongoing",
+        team: "Individual",
+        status: "Ongoing",
       },
     },
   ];

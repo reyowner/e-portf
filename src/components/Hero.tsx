@@ -24,8 +24,8 @@ const Hero: React.FC = () => {
     nickname: "Ren",
     title: "Fullstack Engineer",
     location: "Taguig, Metro Manila, Philippines",
-    experience: "Fullstack Engineer since July 2025",
-    company: "Oaktree Global",
+    experience: "Fullstack Engineer since June 2025",
+    company: "Oaktree Innovations",
     status: "Not Available",
     profileImage: {
       src: "/profile-konato.jpg",
@@ -264,7 +264,7 @@ const Hero: React.FC = () => {
                     transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                   />
                   <span className="hidden sm:inline">{personalInfo.status}</span>
-                  <span className="sm:hidden">Currently employed as Fullstack Engineer at Oaktree Global (Not Available)</span>
+                  <span className="sm:hidden">Currently employed as Fullstack Engineer at Oaktree Innovations (Not Available)</span>
                   <Sparkles className="w-3 h-3 ml-2 text-yellow-400" />
                 </motion.div>
 
@@ -356,7 +356,7 @@ const Hero: React.FC = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.2 }}
                 >
-                  Recent BS IT Graduate as {personalInfo.experience} at {personalInfo.company}. Passionate about
+                  Recent BS IT Graduate working as {personalInfo.experience} at {personalInfo.company}. Passionate about
                   creating user-centered solutions with modern web technologies.
                 </motion.p>
 

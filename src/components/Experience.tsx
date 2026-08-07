@@ -768,8 +768,8 @@ const Experience: React.FC = () => {
               </h3>
               <p className="text-xs sm:text-sm text-gray-400 leading-relaxed px-2 sm:px-4 lg:px-0">
                 Recent BS Information Technology Graduate (2025) • Currently
-                employed as Fullstack Engineer (Contractual) at Oaktree Global
-                (since July 2025)
+                employed as Junior Fullstack Engineer at Oaktree Innovations
+                (since June 2025)
               </p>
             </div>
           </div>
