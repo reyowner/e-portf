@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import type React from "react";
-import { useState, useEffect } from "react";
-import { ExternalLink, Github, Calendar, Users, Code, Zap } from "lucide-react";
-import { motion } from "framer-motion";
-import LoadingSpinner from "./LoadingSpinner";
-import SkeletonLoader from "./SkeletonLoader";
+import type React from 'react';
+import { useState, useEffect } from 'react';
+import { ExternalLink, Github, Calendar, Users, Code, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
+import LoadingSpinner from './LoadingSpinner';
+import SkeletonLoader from './SkeletonLoader';
 
 const Projects: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,134 +51,122 @@ const Projects: React.FC = () => {
     //   },
     // },
     {
-      title: "PREDIKTA Marketing App - Frontend Development",
-      duration: "March 2025 - May 2025",
-      company: "Netopia AI (via Oaktree Innovations)",
-      role: "Full Stack Software Engineer Intern",
-      category: "Professional Work",
+      title: 'PREDIKTA Marketing App - Frontend Development',
+      duration: 'March 2025 - May 2025',
+      company: 'Netopia AI (via Oaktree Innovations)',
+      role: 'Full Stack Software Engineer Intern',
+      category: 'Professional Work',
       description:
-        "Contributed to the development of PREDIKTA Marketing App as part of the Oaktree Innovations internship program, working directly with client requirements and professional development standards.",
+        'Contributed to the development of PREDIKTA Marketing App as part of the Oaktree Innovations internship program, working directly with client requirements and professional development standards.',
       features: [
-        "Implemented UI components from Figma designs",
-        "Integrated frontend components with backend APIs",
-        "Collaborated in agile development environment",
-        "Participated in code reviews and team meetings",
-        "Ensured responsive design across devices",
+        'Implemented UI components from Figma designs',
+        'Integrated frontend components with backend APIs',
+        'Collaborated in agile development environment',
+        'Participated in code reviews and team meetings',
+        'Ensured responsive design across devices',
       ],
-      technologies: [
-        "React.js",
-        "Next.js",
-        "Figma to Code",
-        "API Integration",
-        "Agile/Scrum",
-      ],
+      technologies: ['React.js', 'Next.js', 'Figma to Code', 'API Integration', 'Agile/Scrum'],
       professional: true,
       stats: {
-        duration: "3 months",
-        team: "3 developers",
-        status: "Completed",
+        duration: '3 months',
+        team: '3 developers',
+        status: 'Completed',
       },
     },
     {
-      title: "PREDIKTA Marketing Platform - AI-Powered Campaign Intelligence",
-      duration: "March 2025 - Present",
-      company: "Netopia AI (via Oaktree Innovations)",
-      role: "Junior Fullstack Engineer",
-      category: "Professional Work",
+      title: 'PREDIKTA Marketing Platform - AI-Powered Campaign Intelligence',
+      duration: 'March 2025 - Present',
+      company: 'Netopia AI (via Oaktree Innovations)',
+      role: 'Junior Fullstack Engineer',
+      category: 'Professional Work',
       description:
-        "A comprehensive AI-powered marketing intelligence platform that enables brands to test and optimize advertising campaigns before launch. Predikta uses behavioral science and machine learning to predict ad performance, benchmark creative effectiveness, and provide data-driven insights. The platform has demonstrated validated results with ads scoring higher on Predikta achieving 3.4x higher CTR and 2.6x lower CPC in real-world campaigns.",
+        'A comprehensive AI-powered marketing intelligence platform that enables brands to test and optimize advertising campaigns before launch. Predikta uses behavioral science and machine learning to predict ad performance, benchmark creative effectiveness, and provide data-driven insights. The platform has demonstrated validated results with ads scoring higher on Predikta achieving 3.4x higher CTR and 2.6x lower CPC in real-world campaigns.',
       features: [
-        "AI-powered campaign simulation and ad performance prediction",
-        "Audience creation with 88K+ Filipino consumer dataset filtering",
-        "Creative testing and refinement with benchmarked scoring system",
-        "Real-time campaign monitoring and social media tracking",
-        "Behavioral science insights for purchase intent optimization",
-        "Multi-industry support with expanded platform monitoring",
-        "Admin console for organization and user management",
-        "Program-based campaign organization and workflow management",
+        'AI-powered campaign simulation and ad performance prediction',
+        'Audience creation with 88K+ Filipino consumer dataset filtering',
+        'Creative testing and refinement with benchmarked scoring system',
+        'Real-time campaign monitoring and social media tracking',
+        'Behavioral science insights for purchase intent optimization',
+        'Multi-industry support with expanded platform monitoring',
+        'Admin console for organization and user management',
+        'Program-based campaign organization and workflow management',
       ],
       technologies: [
-        "React 19",
-        "Next.js 16",
-        "TypeScript",
-        "Tailwind CSS",
-        "Radix UI",
-        "TanStack Query",
-        "Zustand",
-        "Python 3.12",
-        "FastAPI",
-        "MongoDB",
-        "AWS SQS/S3",
-        "Google Cloud Pub/Sub/Storage",
-        "Firebase",
-        "Docker",
+        'React 19',
+        'Next.js 16',
+        'TypeScript',
+        'Tailwind CSS',
+        'Radix UI',
+        'TanStack Query',
+        'Zustand',
+        'Python 3.12',
+        'FastAPI',
+        'MongoDB',
+        'AWS SQS/S3',
+        'Google Cloud Pub/Sub/Storage',
+        'Firebase',
+        'Docker',
       ],
       professional: true,
       stats: {
-        duration: "12+ months",
-        team: "3-5 developers",
-        status: "Active Development",
+        duration: '12+ months',
+        team: '3-5 developers',
+        status: 'Active Development',
       },
     },
     {
-      title: "Black Rose - Community Esports Platform",
-      duration: "Ongoing",
-      type: "Voluntary Community Work",
-      category: "Full Stack Development",
+      title: 'Black Rose - Community Esports Platform',
+      duration: 'Ongoing',
+      type: 'Voluntary Community Work',
+      category: 'Full Stack Development',
       description:
         "A comprehensive community esports platform for Alodia Gosiengfiao's Black Rose community. Built as voluntary work to support the community's gaming initiatives, the platform enables Discord members to create profiles, form teams, register for tournaments, and follow live brackets. Operators manage the full event lifecycle through an admin console with tournament creation, entry approval, seeding, scoring, and bracket publishing capabilities.",
       features: [
-        "Discord OAuth authentication with member role verification",
-        "Member profiles and team management system",
-        "Tournament registration with multiple bracket formats",
-        "Live bracket visualization and real-time updates",
-        "Admin console for tournament lifecycle management",
-        "In-app notifications and community features",
-        "Mobile-ready with cross-platform support",
+        'Discord OAuth authentication with member role verification',
+        'Member profiles and team management system',
+        'Tournament registration with multiple bracket formats',
+        'Live bracket visualization and real-time updates',
+        'Admin console for tournament lifecycle management',
+        'In-app notifications and community features',
+        'Mobile-ready with cross-platform support',
       ],
       technologies: [
-        "React 19",
-        "TanStack Start",
-        "Supabase",
-        "Tailwind CSS",
-        "TypeScript",
-        "Capacitor",
+        'React 19',
+        'TanStack Start',
+        'Supabase',
+        'Tailwind CSS',
+        'TypeScript',
+        'Capacitor',
       ],
-      liveUrl: "https://blackrose.asia",
+      liveUrl: 'https://blackrose.asia',
       stats: {
-        duration: "Ongoing",
-        team: "Team",
-        status: "Active Development",
+        duration: 'Ongoing',
+        team: 'Team',
+        status: 'Active Development',
       },
     },
     {
-      title: "E-Portfolio Website",
-      duration: "June 2025 - Present",
-      type: "Personal Project",
-      category: "Frontend Development",
+      title: 'E-Portfolio Website',
+      duration: 'June 2025 - Present',
+      type: 'Personal Project',
+      category: 'Frontend Development',
       description:
         "A modern, responsive portfolio website built with Next.js and React that you're currently viewing. Features dynamic animations, contact form integration, pagination, and optimized performance. Showcases my projects, skills, and professional journey with an emphasis on user experience and modern design principles.",
       features: [
-        "Responsive design with Tailwind CSS",
-        "Dynamic typing animations and interactive elements",
-        "Contact form with EmailJS integration",
-        "Smooth scrolling navigation and pagination",
-        "SEO optimized and performance focused",
-        "Modern UI/UX with glassmorphism effects",
+        'Responsive design with Tailwind CSS',
+        'Dynamic typing animations and interactive elements',
+        'Contact form with EmailJS integration',
+        'Smooth scrolling navigation and pagination',
+        'SEO optimized and performance focused',
+        'Modern UI/UX with glassmorphism effects',
       ],
-      technologies: [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "EmailJS",
-      ],
-      liveUrl: "#",
-      githubUrl: "https://github.com/reyowner/e-portf",
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'EmailJS'],
+      liveUrl: '#',
+
       stats: {
-        duration: "Ongoing",
-        team: "Individual",
-        status: "Ongoing",
+        duration: 'Ongoing',
+        team: 'Individual',
+        status: 'Ongoing',
       },
     },
   ];
@@ -266,7 +254,7 @@ const Projects: React.FC = () => {
     // Center card
     if (offset === 0) {
       return {
-        transform: "translateX(0) scale(1) translateZ(0) rotateY(0deg)",
+        transform: 'translateX(0) scale(1) translateZ(0) rotateY(0deg)',
         zIndex: 50,
         opacity: 1,
       };
@@ -275,16 +263,14 @@ const Projects: React.FC = () => {
     // Right cards (positive offset)
     if (offset === 1) {
       return {
-        transform:
-          "translateX(65%) scale(0.85) translateZ(-100px) rotateY(-8deg)",
+        transform: 'translateX(65%) scale(0.85) translateZ(-100px) rotateY(-8deg)',
         zIndex: 40,
         opacity: 0.9,
       };
     }
     if (offset === 2) {
       return {
-        transform:
-          "translateX(110%) scale(0.7) translateZ(-200px) rotateY(-12deg)",
+        transform: 'translateX(110%) scale(0.7) translateZ(-200px) rotateY(-12deg)',
         zIndex: 30,
         opacity: 0.6,
       };
@@ -293,16 +279,14 @@ const Projects: React.FC = () => {
     // Left cards (negative offset)
     if (offset === -1) {
       return {
-        transform:
-          "translateX(-65%) scale(0.85) translateZ(-100px) rotateY(8deg)",
+        transform: 'translateX(-65%) scale(0.85) translateZ(-100px) rotateY(8deg)',
         zIndex: 40,
         opacity: 0.9,
       };
     }
     if (offset === -2) {
       return {
-        transform:
-          "translateX(-110%) scale(0.7) translateZ(-200px) rotateY(12deg)",
+        transform: 'translateX(-110%) scale(0.7) translateZ(-200px) rotateY(12deg)',
         zIndex: 30,
         opacity: 0.6,
       };
@@ -310,7 +294,7 @@ const Projects: React.FC = () => {
 
     // Hidden cards
     return {
-      transform: "translateX(150%) scale(0.5) translateZ(-300px)",
+      transform: 'translateX(150%) scale(0.5) translateZ(-300px)',
       zIndex: 10,
       opacity: 0,
     };
@@ -318,11 +302,11 @@ const Projects: React.FC = () => {
 
   const getProjectIcon = (category: string) => {
     switch (category) {
-      case "Full Stack Development":
+      case 'Full Stack Development':
         return Code;
-      case "Professional Work":
+      case 'Professional Work':
         return Users;
-      case "Frontend Development":
+      case 'Frontend Development':
         return Zap;
       default:
         return Code;
@@ -331,18 +315,18 @@ const Projects: React.FC = () => {
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case "Full Stack Development":
-        return "bg-blue-900/30 text-blue-300 border-blue-800";
-      case "Professional Work":
-        return "bg-green-900/30 text-green-300 border-green-800";
-      case "Frontend Development":
-        return "bg-purple-900/30 text-purple-300 border-purple-800";
-      case "Database Management":
-        return "bg-orange-900/30 text-orange-300 border-orange-800";
-      case "API Integration":
-        return "bg-pink-900/30 text-pink-300 border-pink-800";
+      case 'Full Stack Development':
+        return 'bg-blue-900/30 text-blue-300 border-blue-800';
+      case 'Professional Work':
+        return 'bg-green-900/30 text-green-300 border-green-800';
+      case 'Frontend Development':
+        return 'bg-purple-900/30 text-purple-300 border-purple-800';
+      case 'Database Management':
+        return 'bg-orange-900/30 text-orange-300 border-orange-800';
+      case 'API Integration':
+        return 'bg-pink-900/30 text-pink-300 border-pink-800';
       default:
-        return "bg-gray-800 text-gray-300 border-gray-700";
+        return 'bg-gray-800 text-gray-300 border-gray-700';
     }
   };
 
@@ -416,7 +400,7 @@ const Projects: React.FC = () => {
                         <div className="flex flex-wrap items-center gap-2 mb-3">
                           <span
                             className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(
-                              project.category,
+                              project.category
                             )}`}
                           >
                             <ProjectIcon className="w-3 h-3 mr-1" />
@@ -434,21 +418,15 @@ const Projects: React.FC = () => {
 
                         {project.company && (
                           <div className="mb-2">
-                            <p className="text-sm font-semibold text-blue-400">
-                              {project.company}
-                            </p>
+                            <p className="text-sm font-semibold text-blue-400">{project.company}</p>
                             {project.role && (
-                              <p className="text-xs text-gray-400">
-                                {project.role}
-                              </p>
+                              <p className="text-xs text-gray-400">{project.role}</p>
                             )}
                           </div>
                         )}
 
                         {project.type && !project.company && (
-                          <p className="text-sm font-medium text-blue-400 mb-2">
-                            {project.type}
-                          </p>
+                          <p className="text-sm font-medium text-blue-400 mb-2">{project.type}</p>
                         )}
 
                         <p className="text-gray-400 leading-relaxed text-sm">
@@ -528,9 +506,7 @@ const Projects: React.FC = () => {
                               whileTap={{ scale: 0.95 }}
                             >
                               <ExternalLink className="mr-2 h-4 w-4" />
-                              {project.liveUrl === "#"
-                                ? "You're Here!"
-                                : "Live Demo"}
+                              {project.liveUrl === '#' ? "You're Here!" : 'Live Demo'}
                             </motion.a>
                           )}
                           {project.githubUrl && (
@@ -557,7 +533,7 @@ const Projects: React.FC = () => {
           {/* Desktop: 3D Carousel Container */}
           <div
             className="hidden md:block relative min-h-[600px] md:min-h-[750px] lg:min-h-[900px] xl:min-h-[1000px] overflow-x-hidden overflow-y-visible cursor-grab active:cursor-grabbing"
-            style={{ perspective: "2000px" }}
+            style={{ perspective: '2000px' }}
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
@@ -576,20 +552,18 @@ const Projects: React.FC = () => {
                   key={index}
                   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out"
                   style={{
-                    width: isCenter
-                      ? "clamp(320px, 55vw, 1100px)"
-                      : "clamp(280px, 40vw, 700px)",
+                    width: isCenter ? 'clamp(320px, 55vw, 1100px)' : 'clamp(280px, 40vw, 700px)',
                     transform: style.transform,
                     zIndex: style.zIndex,
                     opacity: style.opacity,
-                    transformStyle: "preserve-3d",
+                    transformStyle: 'preserve-3d',
                   }}
                 >
                   <div
                     className={`group rounded-2xl sm:rounded-3xl border-2 shadow-lg transition-all duration-500 ${
                       isCenter
-                        ? "bg-gray-800 border-blue-400/50 hover:border-blue-400/70 hover:shadow-2xl cursor-default"
-                        : "bg-gray-800/60 border-gray-700/50 hover:border-gray-600 cursor-pointer"
+                        ? 'bg-gray-800 border-blue-400/50 hover:border-blue-400/70 hover:shadow-2xl cursor-default'
+                        : 'bg-gray-800/60 border-gray-700/50 hover:border-gray-600 cursor-pointer'
                     }`}
                     onClick={() => !isCenter && handleNavigation(index)}
                   >
@@ -598,27 +572,23 @@ const Projects: React.FC = () => {
                       <div className="flex flex-wrap items-center gap-1 sm:gap-2 lg:gap-3 mb-2 sm:mb-4">
                         <span
                           className={`inline-flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-semibold border ${getCategoryColor(
-                            project.category,
+                            project.category
                           )}`}
                         >
                           <ProjectIcon className="w-2 h-2 sm:w-3 sm:h-3 mr-1" />
-                          <span className="text-xs sm:text-xs">
-                            {project.category}
-                          </span>
+                          <span className="text-xs sm:text-xs">{project.category}</span>
                         </span>
                         <span className="text-xs text-gray-500 flex items-center">
                           <Calendar className="w-2 h-2 sm:w-3 sm:h-3 lg:w-4 lg:h-4 mr-1" />
-                          <span className="text-xs sm:text-xs">
-                            {project.duration}
-                          </span>
+                          <span className="text-xs sm:text-xs">{project.duration}</span>
                         </span>
                       </div>
 
                       <h3
                         className={`font-bold mb-2 sm:mb-3 text-white group-hover:text-blue-400 transition-colors duration-300 leading-tight ${
                           isCenter
-                            ? "text-sm sm:text-lg md:text-xl lg:text-3xl"
-                            : "text-xs sm:text-sm lg:text-base"
+                            ? 'text-sm sm:text-lg md:text-xl lg:text-3xl'
+                            : 'text-xs sm:text-sm lg:text-base'
                         }`}
                       >
                         {project.title}
@@ -629,11 +599,7 @@ const Projects: React.FC = () => {
                           <p className="text-xs sm:text-sm lg:text-base font-semibold text-blue-400">
                             {project.company}
                           </p>
-                          {project.role && (
-                            <p className="text-xs text-gray-400">
-                              {project.role}
-                            </p>
-                          )}
+                          {project.role && <p className="text-xs text-gray-400">{project.role}</p>}
                         </div>
                       )}
 
@@ -646,8 +612,8 @@ const Projects: React.FC = () => {
                       <p
                         className={`text-gray-400 leading-relaxed ${
                           isCenter
-                            ? "text-xs sm:text-sm lg:text-base"
-                            : "text-xs line-clamp-2 sm:line-clamp-3"
+                            ? 'text-xs sm:text-sm lg:text-base'
+                            : 'text-xs line-clamp-2 sm:line-clamp-3'
                         }`}
                       >
                         {project.description}
@@ -729,7 +695,7 @@ const Projects: React.FC = () => {
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                               onClick={(e) => {
-                                if (project.liveUrl !== "#") {
+                                if (project.liveUrl !== '#') {
                                   // Show loading state for external links
                                   const button = e.currentTarget;
                                   const originalContent = button.innerHTML;
@@ -742,9 +708,7 @@ const Projects: React.FC = () => {
                               }}
                             >
                               <ExternalLink className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 group-hover:rotate-12 transition-transform duration-300" />
-                              {project.liveUrl === "#"
-                                ? "You're Here!"
-                                : "Live Demo"}
+                              {project.liveUrl === '#' ? "You're Here!" : 'Live Demo'}
                             </motion.a>
                           )}
                           {project.githubUrl && (
@@ -778,8 +742,8 @@ const Projects: React.FC = () => {
               onClick={() => handleNavigation(index)}
               className={`transition-all duration-300 rounded-full ${
                 currentIndex === index
-                  ? "w-3 h-3 bg-blue-400"
-                  : "w-2.5 h-2.5 bg-gray-600 hover:bg-gray-500"
+                  ? 'w-3 h-3 bg-blue-400'
+                  : 'w-2.5 h-2.5 bg-gray-600 hover:bg-gray-500'
               }`}
               aria-label={`Go to project ${index + 1}`}
             />
