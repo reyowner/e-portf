@@ -162,6 +162,7 @@ const Projects: React.FC = () => {
       ],
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'EmailJS'],
       liveUrl: '#',
+      githubUrl: undefined,
 
       stats: {
         duration: 'Ongoing',
