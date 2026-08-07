@@ -17,39 +17,39 @@ const Projects: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
 
   const allProjects = [
-    {
-      title: "TaskFlow - Full Stack Task Management Web App",
-      duration: "March 2025 - April 2025",
-      type: "Oaktree Innovations Curriculum Final Project",
-      category: "Full Stack Development",
-      description:
-        "A comprehensive task management web application developed as the capstone project for Oaktree Innovations' development curriculum. Demonstrates full-stack development capabilities with modern web technologies and best practices.",
-      features: [
-        "Complete CRUD Operations for task management",
-        "User Authentication with secure login",
-        "Session Handling across browser sessions",
-        "Responsive Design for all devices",
-        "Modern UI/UX with clean interface",
-        "RESTful API endpoints",
-      ],
-      technologies: [
-        "React.js",
-        "Next.js",
-        "Python",
-        "FastAPI",
-        "PostgreSQL",
-        "JWT",
-        "Git",
-      ],
-      liveUrl: "https://task-flow-xxm5.onrender.com",
-      githubUrl: "https://github.com/reyowner/TaskFlow",
-      featured: true,
-      stats: {
-        duration: "2 months",
-        team: "Individual",
-        status: "Live",
-      },
-    },
+    // {
+    //   title: "TaskFlow - Full Stack Task Management Web App",
+    //   duration: "March 2025 - April 2025",
+    //   type: "Oaktree Innovations Curriculum Final Project",
+    //   category: "Full Stack Development",
+    //   description:
+    //     "A comprehensive task management web application developed as the capstone project for Oaktree Innovations' development curriculum. Demonstrates full-stack development capabilities with modern web technologies and best practices.",
+    //   features: [
+    //     "Complete CRUD Operations for task management",
+    //     "User Authentication with secure login",
+    //     "Session Handling across browser sessions",
+    //     "Responsive Design for all devices",
+    //     "Modern UI/UX with clean interface",
+    //     "RESTful API endpoints",
+    //   ],
+    //   technologies: [
+    //     "React.js",
+    //     "Next.js",
+    //     "Python",
+    //     "FastAPI",
+    //     "PostgreSQL",
+    //     "JWT",
+    //     "Git",
+    //   ],
+    //   liveUrl: "https://task-flow-xxm5.onrender.com",
+    //   githubUrl: "https://github.com/reyowner/TaskFlow",
+    //   featured: true,
+    //   stats: {
+    //     duration: "2 months",
+    //     team: "Individual",
+    //     status: "Live",
+    //   },
+    // },
     {
       title: "PREDIKTA Marketing App - Frontend Development",
       duration: "March 2025 - May 2025",
@@ -77,6 +77,78 @@ const Projects: React.FC = () => {
         duration: "3 months",
         team: "3 developers",
         status: "Completed",
+      },
+    },
+    {
+      title: "PREDIKTA Marketing Platform - AI-Powered Campaign Intelligence",
+      duration: "March 2025 - Present",
+      company: "Netopia AI (via Oaktree Innovations)",
+      role: "Junior Fullstack Engineer",
+      category: "Professional Work",
+      description:
+        "A comprehensive AI-powered marketing intelligence platform that enables brands to test and optimize advertising campaigns before launch. Predikta uses behavioral science and machine learning to predict ad performance, benchmark creative effectiveness, and provide data-driven insights. The platform has demonstrated validated results with ads scoring higher on Predikta achieving 3.4x higher CTR and 2.6x lower CPC in real-world campaigns.",
+      features: [
+        "AI-powered campaign simulation and ad performance prediction",
+        "Audience creation with 88K+ Filipino consumer dataset filtering",
+        "Creative testing and refinement with benchmarked scoring system",
+        "Real-time campaign monitoring and social media tracking",
+        "Behavioral science insights for purchase intent optimization",
+        "Multi-industry support with expanded platform monitoring",
+        "Admin console for organization and user management",
+        "Program-based campaign organization and workflow management",
+      ],
+      technologies: [
+        "React 19",
+        "Next.js 16",
+        "TypeScript",
+        "Tailwind CSS",
+        "Radix UI",
+        "TanStack Query",
+        "Zustand",
+        "Python 3.12",
+        "FastAPI",
+        "MongoDB",
+        "AWS SQS/S3",
+        "Google Cloud Pub/Sub/Storage",
+        "Firebase",
+        "Docker",
+      ],
+      professional: true,
+      stats: {
+        duration: "12+ months",
+        team: "3-5 developers",
+        status: "Active Development",
+      },
+    },
+    {
+      title: "Black Rose - Community Esports Platform",
+      duration: "Ongoing",
+      type: "Voluntary Community Work",
+      category: "Full Stack Development",
+      description:
+        "A comprehensive community esports platform for Alodia Gosiengfiao's Black Rose community. Built as voluntary work to support the community's gaming initiatives, the platform enables Discord members to create profiles, form teams, register for tournaments, and follow live brackets. Operators manage the full event lifecycle through an admin console with tournament creation, entry approval, seeding, scoring, and bracket publishing capabilities.",
+      features: [
+        "Discord OAuth authentication with member role verification",
+        "Member profiles and team management system",
+        "Tournament registration with multiple bracket formats",
+        "Live bracket visualization and real-time updates",
+        "Admin console for tournament lifecycle management",
+        "In-app notifications and community features",
+        "Mobile-ready with cross-platform support",
+      ],
+      technologies: [
+        "React 19",
+        "TanStack Start",
+        "Supabase",
+        "Tailwind CSS",
+        "TypeScript",
+        "Capacitor",
+      ],
+      liveUrl: "https://blackrose.asia",
+      stats: {
+        duration: "Ongoing",
+        team: "Team",
+        status: "Active Development",
       },
     },
     {
@@ -344,7 +416,7 @@ const Projects: React.FC = () => {
                         <div className="flex flex-wrap items-center gap-2 mb-3">
                           <span
                             className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(
-                              project.category
+                              project.category,
                             )}`}
                           >
                             <ProjectIcon className="w-3 h-3 mr-1" />
@@ -526,7 +598,7 @@ const Projects: React.FC = () => {
                       <div className="flex flex-wrap items-center gap-1 sm:gap-2 lg:gap-3 mb-2 sm:mb-4">
                         <span
                           className={`inline-flex items-center px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs font-semibold border ${getCategoryColor(
-                            project.category
+                            project.category,
                           )}`}
                         >
                           <ProjectIcon className="w-2 h-2 sm:w-3 sm:h-3 mr-1" />

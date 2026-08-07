@@ -88,6 +88,49 @@ const Experience: React.FC = () => {
       ],
     },
     {
+      title: "Junior Fullstack Engineer",
+      company: "Oaktree Innovations",
+      duration: "June 2025 - Present",
+      location: "Remote",
+      type: "Full-time Employment",
+      status: "Current",
+      category: "Professional Experience",
+      description:
+        "Promoted from intern to Junior Fullstack Engineer following successful contribution to the PREDIKTA Marketing Platform. Currently working as part of a 3-5 person development team, focusing primarily on frontend UI/UX implementation while collaborating with cross-functional team to deliver client requirements. Working directly with Netopia AI stakeholders in an agile environment following client-driven Gantt chart timelines.",
+      achievements: [
+        "Implement frontend UI/UX features, ensuring alignment with Figma designs and client requirements",
+        "Handle User Acceptance Testing (UAT) feedback from Netopia AI, implementing fixes and refinements",
+        "Translate client needs and requirements into functional application features",
+        "Collaborate in agile development environment following client-provided Gantt chart timelines",
+        "Develop complex features including audience creation, campaign management, and testing/refinement workflows",
+        "Integrate frontend components with backend services and AI-powered prediction engines",
+        "Participate in team meetings and continuous improvement initiatives",
+        "Maintain responsive design standards across all application features",
+      ],
+      technologies: [
+        "React 19",
+        "Next.js 16",
+        "TypeScript",
+        "Tailwind CSS",
+        "Radix UI",
+        "TanStack Query",
+        "Zustand",
+        "FastAPI",
+        "Python",
+        "MongoDB",
+        "Figma to Code",
+        "Git",
+        "Agile Development",
+        "Client Communication",
+      ],
+      highlights: [
+        "Promoted from intern to full-time Junior Fullstack Engineer",
+        "Frontend UI/UX development for production marketing platform",
+        "Direct client collaboration with Netopia AI",
+        "Feature development from design to deployment",
+      ],
+    },
+    {
       title: "Data Entry Clerk",
       company: "Nelpa Lifesciences Inc.",
       duration: "February 2021 - March 2021",
@@ -725,8 +768,8 @@ const Experience: React.FC = () => {
               </h3>
               <p className="text-xs sm:text-sm text-gray-400 leading-relaxed px-2 sm:px-4 lg:px-0">
                 Recent BS Information Technology Graduate (2025) • Currently
-                employed as Fullstack Engineer (Contractual) at Oaktree Global
-                (since July 2025)
+                employed as Junior Fullstack Engineer at Oaktree Innovations
+                (since June 2025)
               </p>
             </div>
           </div>

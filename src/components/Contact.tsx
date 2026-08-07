@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
-import type React from "react"
-import { useState, useRef } from "react"
+import type React from 'react';
+import { useState, useRef } from 'react';
 import {
   Mail,
   Phone,
@@ -15,179 +15,194 @@ import {
   Send,
   User,
   FileText,
-} from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import emailjs from "emailjs-com"
+} from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from 'emailjs-com';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
-  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
-  const [focusedField, setFocusedField] = useState<string | null>(null)
-  const formRef = useRef<HTMLFormElement>(null)
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
-      value: "domasigreoner@gmail.com",
-      href: "mailto:domasigreoner@gmail.com",
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10",
+      label: 'Email',
+      value: 'domasigreoner@gmail.com',
+      href: 'mailto:domasigreoner@gmail.com',
+      color: 'text-blue-500',
+      bgColor: 'bg-blue-500/10',
     },
     {
       icon: Phone,
-      label: "Phone",
-      value: "+63 967 205 4484",
-      href: "tel:+639672054484",
-      color: "text-green-500",
-      bgColor: "bg-green-500/10",
+      label: 'Phone',
+      value: '+63 967 205 4484',
+      href: 'tel:+639672054484',
+      color: 'text-green-500',
+      bgColor: 'bg-green-500/10',
     },
     {
       icon: MapPin,
-      label: "Location",
-      value: "Taguig, Metro Manila, Philippines",
+      label: 'Location',
+      value: 'Taguig, Metro Manila, Philippines',
       href: null,
-      color: "text-red-500",
-      bgColor: "bg-red-500/10",
+      color: 'text-red-500',
+      bgColor: 'bg-red-500/10',
     },
     {
       icon: Linkedin,
-      label: "LinkedIn",
-      value: "linkedin.com/in/rreonerjr",
-      href: "https://linkedin.com/in/rreonerjr",
-      color: "text-blue-600",
-      bgColor: "bg-blue-600/10",
+      label: 'LinkedIn',
+      value: 'linkedin.com/in/rreonerjr',
+      href: 'https://linkedin.com/in/rreonerjr',
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-600/10',
     },
-  ]
+  ];
 
   const availability = [
-    { icon: CheckCircle, label: "Status", value: "Employed (Not Available)", color: "text-gray-400", bgColor: "bg-gray-600/10" },
-    { icon: Clock, label: "Notice Period", value: "Not accepting new offers", color: "text-gray-400", bgColor: "bg-gray-600/10" },
+    {
+      icon: CheckCircle,
+      label: 'Status',
+      value: 'Employed (Open to opportunities)',
+      color: 'text-green-400',
+      bgColor: 'bg-green-600/10',
+    },
+    {
+      icon: Clock,
+      label: 'Notice Period',
+      value: 'Flexible / Negotiable',
+      color: 'text-blue-400',
+      bgColor: 'bg-blue-600/10',
+    },
     {
       icon: Globe,
-      label: "Work Preference",
-      value: "Remote / Hybrid / On-site",
-      color: "text-purple-600",
-      bgColor: "bg-purple-600/10",
+      label: 'Work Preference',
+      value: 'Remote / Hybrid / On-site',
+      color: 'text-purple-600',
+      bgColor: 'bg-purple-600/10',
     },
     {
       icon: MessageSquare,
-      label: "Open to",
-      value: "Currently not open to new opportunities",
-      color: "text-orange-600",
-      bgColor: "bg-orange-600/10",
+      label: 'Open to',
+      value: 'New opportunities while employed',
+      color: 'text-green-600',
+      bgColor: 'bg-green-600/10',
     },
-  ]
+  ];
 
   // Real-time validation
   const validateField = (name: string, value: string) => {
     switch (name) {
-      case "name":
-        if (!value.trim()) return "Name is required"
-        if (value.trim().length < 2) return "Name must be at least 2 characters"
-        return ""
-      case "email":
-        if (!value.trim()) return "Email is required"
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        if (!emailRegex.test(value)) return "Please enter a valid email address"
-        return ""
-      case "subject":
-        if (!value.trim()) return "Subject is required"
-        if (value.trim().length < 5) return "Subject must be at least 5 characters"
-        return ""
-      case "message":
-        if (!value.trim()) return "Message is required"
-        if (value.trim().length < 10) return "Message must be at least 10 characters"
-        return ""
+      case 'name':
+        if (!value.trim()) return 'Name is required';
+        if (value.trim().length < 2) return 'Name must be at least 2 characters';
+        return '';
+      case 'email':
+        if (!value.trim()) return 'Email is required';
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) return 'Please enter a valid email address';
+        return '';
+      case 'subject':
+        if (!value.trim()) return 'Subject is required';
+        if (value.trim().length < 5) return 'Subject must be at least 5 characters';
+        return '';
+      case 'message':
+        if (!value.trim()) return 'Message is required';
+        if (value.trim().length < 10) return 'Message must be at least 10 characters';
+        return '';
       default:
-        return ""
+        return '';
     }
-  }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
     // Real-time validation
-    const error = validateField(name, value)
-    setFieldErrors((prev) => ({ ...prev, [name]: error }))
-  }
+    const error = validateField(name, value);
+    setFieldErrors((prev) => ({ ...prev, [name]: error }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     // Validate all fields
-    const errors: Record<string, string> = {}
+    const errors: Record<string, string> = {};
     Object.entries(formData).forEach(([key, value]) => {
-      const error = validateField(key, value)
-      if (error) errors[key] = error
-    })
+      const error = validateField(key, value);
+      if (error) errors[key] = error;
+    });
 
     if (Object.keys(errors).length > 0) {
-      setFieldErrors(errors)
-      return
+      setFieldErrors(errors);
+      return;
     }
 
-    setIsSubmitting(true)
-    setSubmitStatus("idle")
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
 
     try {
       await emailjs.send(
-        "service_1y4uagr",
-        "template_sd87jyc",
+        'service_1y4uagr',
+        'template_sd87jyc',
         {
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
           initials: formData.name
-            .split(" ")
+            .split(' ')
             .map((n) => n[0])
-            .join("")
+            .join('')
             .toUpperCase(),
           time: new Date().toLocaleString(),
         },
-        "J1iypjLPkmIVIeREW",
-      )
+        'J1iypjLPkmIVIeREW'
+      );
 
-      setSubmitStatus("success")
-      setFormData({ name: "", email: "", subject: "", message: "" })
-      setFieldErrors({})
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFieldErrors({});
 
       // Auto-hide success message after 5 seconds
-      setTimeout(() => setSubmitStatus("idle"), 5000)
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch {
-      setSubmitStatus("error")
-      setTimeout(() => setSubmitStatus("idle"), 5000)
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const getFieldIcon = (fieldName: string) => {
     switch (fieldName) {
-      case "name":
-        return User
-      case "email":
-        return Mail
-      case "subject":
-        return FileText
-      case "message":
-        return MessageSquare
+      case 'name':
+        return User;
+      case 'email':
+        return Mail;
+      case 'subject':
+        return FileText;
+      case 'message':
+        return MessageSquare;
       default:
-        return User
+        return User;
     }
-  }
+  };
 
   return (
-    <section id="contact" className="py-8 sm:py-12 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800">
+    <section
+      id="contact"
+      className="py-8 sm:py-12 lg:py-20 bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-8 sm:mb-12 lg:mb-16"
@@ -200,7 +215,8 @@ const Contact: React.FC = () => {
             Let's Connect
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
-            Currently employed as Fullstack Engineer (Contractual) at Oaktree Global. Not available for new opportunities.
+            Currently employed as Junior Fullstack Engineer at Oaktree Innovations. Open to new
+            opportunities while employed.
           </p>
         </motion.div>
 
@@ -221,12 +237,14 @@ const Contact: React.FC = () => {
               >
                 <Send className="w-5 h-5 text-blue-400" />
               </motion.div>
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">Send a Message</h3>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
+                Send a Message
+              </h3>
             </div>
 
             {/* Enhanced Status Messages */}
             <AnimatePresence>
-              {submitStatus === "success" && (
+              {submitStatus === 'success' && (
                 <motion.div
                   initial={{ opacity: 0, y: -20, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -242,7 +260,7 @@ const Contact: React.FC = () => {
                 </motion.div>
               )}
 
-              {submitStatus === "error" && (
+              {submitStatus === 'error' && (
                 <motion.div
                   initial={{ opacity: 0, y: -20, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -261,10 +279,10 @@ const Contact: React.FC = () => {
 
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                {["name", "email"].map((field) => {
-                  const Icon = getFieldIcon(field)
-                  const hasError = fieldErrors[field]
-                  const isFocused = focusedField === field
+                {['name', 'email'].map((field) => {
+                  const Icon = getFieldIcon(field);
+                  const hasError = fieldErrors[field];
+                  const isFocused = focusedField === field;
 
                   return (
                     <motion.div
@@ -274,29 +292,38 @@ const Contact: React.FC = () => {
                       viewport={{ once: true }}
                       transition={{ delay: 0.1 }}
                     >
-                      <label htmlFor={field} className="block text-sm font-medium text-gray-300 mb-2 capitalize">
-                        {field === "name" ? "Full Name" : "Email Address"}
+                      <label
+                        htmlFor={field}
+                        className="block text-sm font-medium text-gray-300 mb-2 capitalize"
+                      >
+                        {field === 'name' ? 'Full Name' : 'Email Address'}
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                           <Icon
                             className={`h-4 w-4 transition-colors duration-200 ${
-                              hasError ? "text-red-400" : isFocused ? "text-blue-400" : "text-gray-500"
+                              hasError
+                                ? 'text-red-400'
+                                : isFocused
+                                  ? 'text-blue-400'
+                                  : 'text-gray-500'
                             }`}
                           />
                         </div>
                         <input
                           id={field}
                           name={field}
-                          type={field === "email" ? "email" : "text"}
+                          type={field === 'email' ? 'email' : 'text'}
                           value={formData[field as keyof typeof formData]}
                           onChange={handleInputChange}
                           onFocus={() => setFocusedField(field)}
                           onBlur={() => setFocusedField(null)}
                           className={`w-full pl-10 pr-3 py-2.5 sm:py-3 rounded-lg border bg-gray-800 text-white focus:ring-2 focus:border-transparent transition-all duration-200 text-sm sm:text-base ${
-                            hasError ? "border-red-500 focus:ring-red-400" : "border-gray-700 focus:ring-blue-400"
+                            hasError
+                              ? 'border-red-500 focus:ring-red-400'
+                              : 'border-gray-700 focus:ring-blue-400'
                           }`}
-                          placeholder={field === "name" ? "Your name" : "your.email@example.com"}
+                          placeholder={field === 'name' ? 'Your name' : 'your.email@example.com'}
                         />
                       </div>
                       <AnimatePresence>
@@ -312,7 +339,7 @@ const Contact: React.FC = () => {
                         )}
                       </AnimatePresence>
                     </motion.div>
-                  )
+                  );
                 })}
               </div>
 
@@ -331,10 +358,10 @@ const Contact: React.FC = () => {
                     <FileText
                       className={`h-4 w-4 transition-colors duration-200 ${
                         fieldErrors.subject
-                          ? "text-red-400"
-                          : focusedField === "subject"
-                            ? "text-blue-400"
-                            : "text-gray-500"
+                          ? 'text-red-400'
+                          : focusedField === 'subject'
+                            ? 'text-blue-400'
+                            : 'text-gray-500'
                       }`}
                     />
                   </div>
@@ -343,10 +370,12 @@ const Contact: React.FC = () => {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    onFocus={() => setFocusedField("subject")}
+                    onFocus={() => setFocusedField('subject')}
                     onBlur={() => setFocusedField(null)}
                     className={`w-full pl-10 pr-3 py-2.5 sm:py-3 rounded-lg border bg-gray-800 text-white focus:ring-2 focus:border-transparent transition-all duration-200 text-sm sm:text-base ${
-                      fieldErrors.subject ? "border-red-500 focus:ring-red-400" : "border-gray-700 focus:ring-blue-400"
+                      fieldErrors.subject
+                        ? 'border-red-500 focus:ring-red-400'
+                        : 'border-gray-700 focus:ring-blue-400'
                     }`}
                     placeholder="What's this about?"
                   />
@@ -380,10 +409,10 @@ const Contact: React.FC = () => {
                     <MessageSquare
                       className={`h-4 w-4 transition-colors duration-200 ${
                         fieldErrors.message
-                          ? "text-red-400"
-                          : focusedField === "message"
-                            ? "text-blue-400"
-                            : "text-gray-500"
+                          ? 'text-red-400'
+                          : focusedField === 'message'
+                            ? 'text-blue-400'
+                            : 'text-gray-500'
                       }`}
                     />
                   </div>
@@ -392,11 +421,13 @@ const Contact: React.FC = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    onFocus={() => setFocusedField("message")}
+                    onFocus={() => setFocusedField('message')}
                     onBlur={() => setFocusedField(null)}
                     rows={4}
                     className={`w-full pl-10 pr-3 py-2.5 sm:py-3 rounded-lg border bg-gray-800 text-white focus:ring-2 focus:border-transparent transition-all duration-200 resize-none text-sm sm:text-base ${
-                      fieldErrors.message ? "border-red-500 focus:ring-red-400" : "border-gray-700 focus:ring-blue-400"
+                      fieldErrors.message
+                        ? 'border-red-500 focus:ring-red-400'
+                        : 'border-gray-700 focus:ring-blue-400'
                     }`}
                     placeholder="Your message..."
                   />
@@ -431,7 +462,7 @@ const Contact: React.FC = () => {
                     <motion.div
                       className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                      transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: 'linear' }}
                     />
                     <span>Sending...</span>
                   </>
@@ -454,7 +485,9 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 sm:mb-6">Contact Information</h3>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 sm:mb-6">
+                Contact Information
+              </h3>
               <div className="space-y-4 sm:space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.div
@@ -476,8 +509,8 @@ const Contact: React.FC = () => {
                       {info.href ? (
                         <a
                           href={info.href}
-                          target={info.href.startsWith("http") ? "_blank" : undefined}
-                          rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          target={info.href.startsWith('http') ? '_blank' : undefined}
+                          rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                           className="text-blue-400 hover:text-blue-300 transition-colors duration-200 text-sm sm:text-base break-all"
                         >
                           {info.value}
@@ -498,7 +531,9 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 sm:mb-6">Current Status</h3>
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-4 sm:mb-6">
+                Current Status
+              </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {availability.map((item, index) => (
                   <motion.div
@@ -527,7 +562,7 @@ const Contact: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
