@@ -242,9 +242,9 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  <p className="text-sm text-gray-400 text-center">Ready for new opportunities</p>
+                  <p className="text-sm text-gray-400 text-center">Currently employed at Oaktree Innovations</p>
                   <div className="flex justify-center mt-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
                   </div>
                 </motion.div>
               </div>
