@@ -1,49 +1,66 @@
-"use client"
+'use client';
 
-import type React from "react"
-import { useState, useEffect, useMemo } from "react"
-import { Download, Mail, Github, Linkedin, MapPin, Calendar, Code2, ChevronDown, Sparkles, Zap } from "lucide-react"
-import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
+import type React from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import {
+  Download,
+  Mail,
+  Github,
+  Linkedin,
+  MapPin,
+  Calendar,
+  Code2,
+  ChevronDown,
+  Sparkles,
+  Zap,
+} from 'lucide-react';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Hero: React.FC = () => {
-  const [typedText, setTypedText] = useState("")
-  const [showCursor, setShowCursor] = useState(true)
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
+  const [typedText, setTypedText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const roles = useMemo(
-    () => ["Full Stack Developer", "BS Information Technology", "Problem Solver", "Adaptable", "Fast Learner"],
-    [],
-  )
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
-  const [isDeleting, setIsDeleting] = useState(false)
+    () => [
+      'Full Stack Developer',
+      'BS Information Technology',
+      'Problem Solver',
+      'Adaptable',
+      'Fast Learner',
+    ],
+    []
+  );
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   // Personalization Configuration
   const personalInfo = {
-    name: "Renato Reoner Jr.",
-    nickname: "Ren",
-    title: "Fullstack Engineer",
-    location: "Taguig, Metro Manila, Philippines",
-    experience: "Fullstack Engineer since June 2025",
-    company: "Oaktree Innovations",
-    status: "Not Available",
+    name: 'Renato Reoner Jr.',
+    nickname: 'Ren',
+    title: 'Fullstack Engineer',
+    location: 'Taguig, Metro Manila, Philippines',
+    experience: 'Fullstack Engineer since June 2025',
+    company: 'Oaktree Innovations',
+    status: 'Not Available',
     profileImage: {
-      src: "/profile-konato.jpg",
-      alt: "DP",
+      src: '/profile-konato.jpg',
+      alt: 'DP',
       showImage: true,
     },
     background: {
       showParticles: true,
-      primaryColor: "blue",
-      secondaryColor: "purple",
+      primaryColor: 'blue',
+      secondaryColor: 'purple',
     },
     social: {
-      github: "https://github.com/reyowner",
-      linkedin: "https://linkedin.com/in/rreonerjr",
-      email: "domasigreoner@gmail.com",
-      resume: "/RReoner_Resume.pdf",
+      github: 'https://github.com/reyowner',
+      linkedin: 'https://linkedin.com/in/rreonerjr',
+      email: 'domasigreoner@gmail.com',
+      resume: '/RReoner_Resume.pdf',
     },
-  }
+  };
 
   // Handle window resize and initial size
   useEffect(() => {
@@ -51,72 +68,73 @@ const Hero: React.FC = () => {
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
-      })
-    }
+      });
+    };
 
     // Set initial size
-    if (typeof window !== "undefined") {
-      handleResize()
-      window.addEventListener("resize", handleResize)
-      return () => window.removeEventListener("resize", handleResize)
+    if (typeof window !== 'undefined') {
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     }
-  }, [])
+  }, []);
 
   // Enhanced typing animation
   useEffect(() => {
-    const currentRole = roles[currentRoleIndex]
+    const currentRole = roles[currentRoleIndex];
     const timeout = setTimeout(
       () => {
         if (!isDeleting && typedText === currentRole) {
-          setTimeout(() => setIsDeleting(true), 2000)
-        } else if (isDeleting && typedText === "") {
-          setIsDeleting(false)
-          setCurrentRoleIndex((prev) => (prev + 1) % roles.length)
+          setTimeout(() => setIsDeleting(true), 2000);
+        } else if (isDeleting && typedText === '') {
+          setIsDeleting(false);
+          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
         } else if (isDeleting) {
-          setTypedText(currentRole.substring(0, typedText.length - 1))
+          setTypedText(currentRole.substring(0, typedText.length - 1));
         } else {
-          setTypedText(currentRole.substring(0, typedText.length + 1))
+          setTypedText(currentRole.substring(0, typedText.length + 1));
         }
       },
-      isDeleting ? 50 : Math.random() * 100 + 50, // More realistic typing speed
-    )
+      isDeleting ? 50 : Math.random() * 100 + 50 // More realistic typing speed
+    );
 
-    return () => clearTimeout(timeout)
-  }, [typedText, currentRoleIndex, isDeleting, roles])
+    return () => clearTimeout(timeout);
+  }, [typedText, currentRoleIndex, isDeleting, roles]);
 
   // Cursor blink animation
   useEffect(() => {
     const interval = setInterval(() => {
-      setShowCursor((prev) => !prev)
-    }, 530)
-    return () => clearInterval(interval)
-  }, [])
+      setShowCursor((prev) => !prev);
+    }, 530);
+    return () => clearInterval(interval);
+  }, []);
 
   // Loading animation
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 500)
-    return () => clearTimeout(timer)
-  }, [])
+    const timer = setTimeout(() => setIsLoaded(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" })
-  }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleDownloadResume = () => {
-    const link = document.createElement("a")
-    link.href = personalInfo.social.resume
-    link.download = `${personalInfo.name.replace(/\s+/g, "_")}_Resume.pdf`
-    link.click()
-  }
+    const link = document.createElement('a');
+    link.href = personalInfo.social.resume;
+    link.download = `${personalInfo.name.replace(/\s+/g, '_')}_Resume.pdf`;
+    link.click();
+  };
 
   // Fixed floating particles component with proper SSR handling
   const FloatingParticles = () => {
     const [particles, setParticles] = useState<
       Array<{ id: number; x: number; y: number; targetX: number; targetY: number }>
-    >([])
+    >([]);
 
     useEffect(() => {
-      if (typeof window === "undefined" || windowSize.width === 0 || windowSize.height === 0) return
+      if (typeof window === 'undefined' || windowSize.width === 0 || windowSize.height === 0)
+        return;
 
       // Initialize particles only on client side
       const initialParticles = Array.from({ length: 20 }, (_, i) => ({
@@ -125,9 +143,9 @@ const Hero: React.FC = () => {
         y: Math.random() * windowSize.height,
         targetX: Math.random() * windowSize.width,
         targetY: Math.random() * windowSize.height,
-      }))
+      }));
 
-      setParticles(initialParticles)
+      setParticles(initialParticles);
 
       // Update particle positions periodically
       const interval = setInterval(() => {
@@ -136,15 +154,15 @@ const Hero: React.FC = () => {
             ...particle,
             targetX: Math.random() * windowSize.width,
             targetY: Math.random() * windowSize.height,
-          })),
-        )
-      }, 10000) // Update every 10 seconds
+          }))
+        );
+      }, 10000); // Update every 10 seconds
 
-      return () => clearInterval(interval)
-    }, [])
+      return () => clearInterval(interval);
+    }, []);
 
-    if (typeof window === "undefined" || particles.length === 0) {
-      return null
+    if (typeof window === 'undefined' || particles.length === 0) {
+      return null;
     }
 
     return (
@@ -164,14 +182,14 @@ const Hero: React.FC = () => {
             transition={{
               duration: Math.random() * 10 + 10,
               repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-              ease: "linear",
+              repeatType: 'reverse',
+              ease: 'linear',
             }}
           />
         ))}
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 relative overflow-hidden">
@@ -187,9 +205,9 @@ const Hero: React.FC = () => {
           transition={{
             duration: 4,
             repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
-          style={{ transform: "translate(50%, -50%)" }}
+          style={{ transform: 'translate(50%, -50%)' }}
         />
         <motion.div
           className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-purple-500/10 blur-3xl rounded-full"
@@ -200,10 +218,10 @@ const Hero: React.FC = () => {
           transition={{
             duration: 4,
             repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
+            ease: 'easeInOut',
             delay: 2,
           }}
-          style={{ transform: "translate(-50%, 50%)" }}
+          style={{ transform: 'translate(-50%, 50%)' }}
         />
 
         {/* Floating particles - only render on client side */}
@@ -216,7 +234,7 @@ const Hero: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
               className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto"
             >
               {/* Mobile Profile Image */}
@@ -225,12 +243,12 @@ const Hero: React.FC = () => {
                   className="relative lg:hidden order-1"
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6, type: "spring" }}
+                  transition={{ delay: 0.3, duration: 0.6, type: 'spring' }}
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-2xl blur-lg opacity-30"
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                    transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: 'linear' }}
                   />
                   <Image
                     src={personalInfo.profileImage.src}
@@ -256,7 +274,7 @@ const Hero: React.FC = () => {
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.5 }}
-                  whileHover={{ scale: 1.05, borderColor: "rgb(34 197 94)" }}
+                  whileHover={{ scale: 1.05, borderColor: 'rgb(34 197 94)' }}
                 >
                   <motion.div
                     className="w-2 h-2 bg-orange-400 rounded-full mr-2"
@@ -264,7 +282,9 @@ const Hero: React.FC = () => {
                     transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                   />
                   <span className="hidden sm:inline">{personalInfo.status}</span>
-                  <span className="sm:hidden">Currently employed as Fullstack Engineer at Oaktree Innovations (Not Available)</span>
+                  <span className="sm:hidden">
+                    Currently employed as Fullstack Engineer at Oaktree Innovations (Not Available)
+                  </span>
                   <Sparkles className="w-3 h-3 ml-2 text-yellow-400" />
                 </motion.div>
 
@@ -289,16 +309,16 @@ const Hero: React.FC = () => {
                         <motion.span
                           className="block text-white"
                           whileHover={{ scale: 1.05 }}
-                          transition={{ type: "spring", stiffness: 300 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
                         >
-                          {personalInfo.name.split(" ")[0]}
+                          {personalInfo.name.split(' ')[0]}
                         </motion.span>
                         <motion.span
                           className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
                           whileHover={{ scale: 1.05 }}
-                          transition={{ type: "spring", stiffness: 300 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
                         >
-                          {personalInfo.name.split(" ").slice(1).join(" ")}
+                          {personalInfo.name.split(' ').slice(1).join(' ')}
                         </motion.span>
                       </div>
                       {/* Desktop Profile Image */}
@@ -307,12 +327,16 @@ const Hero: React.FC = () => {
                           className="relative hidden lg:block"
                           initial={{ scale: 0, rotate: -180 }}
                           animate={{ scale: 1, rotate: 0 }}
-                          transition={{ delay: 1, duration: 0.6, type: "spring" }}
+                          transition={{ delay: 1, duration: 0.6, type: 'spring' }}
                         >
                           <motion.div
                             className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl blur-xl opacity-30"
                             animate={{ rotate: 360 }}
-                            transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                            transition={{
+                              duration: 20,
+                              repeat: Number.POSITIVE_INFINITY,
+                              ease: 'linear',
+                            }}
                           />
                           <Image
                             src={personalInfo.profileImage.src}
@@ -356,8 +380,9 @@ const Hero: React.FC = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.2 }}
                 >
-                  Recent BS IT Graduate working as {personalInfo.experience} at {personalInfo.company}. Passionate about
-                  creating user-centered solutions with modern web technologies.
+                  Recent BS IT Graduate working as {personalInfo.experience} at{' '}
+                  {personalInfo.company}. Passionate about creating user-centered solutions with
+                  modern web technologies.
                 </motion.p>
 
                 {/* Enhanced Quick Info Cards */}
@@ -369,21 +394,23 @@ const Hero: React.FC = () => {
                 >
                   <motion.div
                     className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gray-800/30 border border-gray-700/30 backdrop-blur-sm"
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(59, 130, 246, 0.1)" }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.1)' }}
+                    transition={{ type: 'spring', stiffness: 300 }}
                   >
                     <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400 flex-shrink-0" />
                     <span className="text-gray-300 text-xs sm:text-sm truncate">
-                      {personalInfo.location.split(",")[0]}
+                      {personalInfo.location.split(',')[0]}
                     </span>
                   </motion.div>
                   <motion.div
                     className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 rounded-lg sm:rounded-xl bg-gray-800/30 border border-gray-700/30 backdrop-blur-sm"
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(34, 197, 94, 0.1)" }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(34, 197, 94, 0.1)' }}
+                    transition={{ type: 'spring', stiffness: 300 }}
                   >
                     <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-orange-400 flex-shrink-0" />
-                    <span className="text-gray-300 text-xs sm:text-sm">Employed (Not Available)</span>
+                    <span className="text-gray-300 text-xs sm:text-sm">
+                      Employed (Not Available)
+                    </span>
                   </motion.div>
                 </motion.div>
 
@@ -395,8 +422,8 @@ const Hero: React.FC = () => {
                   transition={{ delay: 1.6 }}
                 >
                   <motion.button
-                    onClick={() => scrollToSection("projects")}
-                    className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3 text-sm sm:text-base rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
+                    onClick={() => scrollToSection('projects')}
+                    className="cursor-pointer inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3 text-sm sm:text-base rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -406,7 +433,7 @@ const Hero: React.FC = () => {
 
                   <motion.button
                     onClick={handleDownloadResume}
-                    className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3 text-sm sm:text-base rounded-xl border-2 border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white font-medium transition-all duration-300 hover:bg-gray-800/50 backdrop-blur-sm"
+                    className="cursor-pointer inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3 text-sm sm:text-base rounded-xl border-2 border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white font-medium transition-all duration-300 hover:bg-gray-800/50 backdrop-blur-sm"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -423,26 +450,31 @@ const Hero: React.FC = () => {
                   transition={{ delay: 1.8 }}
                 >
                   {[
-                    { icon: Github, href: personalInfo.social.github, label: "GitHub", color: "hover:text-white" },
+                    {
+                      icon: Github,
+                      href: personalInfo.social.github,
+                      label: 'GitHub',
+                      color: 'hover:text-white',
+                    },
                     {
                       icon: Linkedin,
                       href: personalInfo.social.linkedin,
-                      label: "LinkedIn",
-                      color: "hover:text-blue-400",
+                      label: 'LinkedIn',
+                      color: 'hover:text-blue-400',
                     },
                     {
                       icon: Mail,
-                      onClick: () => scrollToSection("contact"),
-                      label: "Contact",
-                      color: "hover:text-green-400",
+                      onClick: () => scrollToSection('contact'),
+                      label: 'Contact',
+                      color: 'hover:text-green-400',
                     },
                   ].map((social, index) => (
                     <motion.a
                       key={social.label}
                       href={social.href}
                       onClick={social.onClick}
-                      target={social.href ? "_blank" : undefined}
-                      rel={social.href ? "noopener noreferrer" : undefined}
+                      target={social.href ? '_blank' : undefined}
+                      rel={social.href ? 'noopener noreferrer' : undefined}
                       className={`group p-2.5 sm:p-3 rounded-xl bg-gray-800/50 border border-gray-700/50 hover:border-gray-600 transition-all duration-300 backdrop-blur-sm ${social.color}`}
                       aria-label={social.label}
                       initial={{ opacity: 0, y: 20 }}
@@ -473,7 +505,7 @@ const Hero: React.FC = () => {
                   <motion.div
                     className="relative bg-gray-800/80 backdrop-blur-sm rounded-3xl p-6 lg:p-8 border border-gray-700/50 shadow-2xl"
                     whileHover={{ scale: 1.02, y: -5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
                   >
                     <div className="flex items-center space-x-2 mb-6">
                       <div className="w-3 h-3 bg-red-400 rounded-full"></div>
@@ -496,7 +528,8 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 2.4 }}
                       >
-                        education: <span className="text-green-400">"BS Information Technology"</span>,
+                        education:{' '}
+                        <span className="text-green-400">"BS Information Technology"</span>,
                       </motion.div>
                       <motion.div
                         className="ml-4 text-gray-300"
@@ -570,7 +603,7 @@ const Hero: React.FC = () => {
           transition={{ delay: 2.5 }}
         >
           <motion.button
-            onClick={() => scrollToSection("about")}
+            onClick={() => scrollToSection('about')}
             className="group p-3 rounded-full bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm hover:bg-gray-700/50 transition-all duration-300"
             aria-label="Scroll to About section"
             animate={{ y: [0, 10, 0] }}
@@ -583,7 +616,7 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
