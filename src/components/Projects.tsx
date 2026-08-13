@@ -116,7 +116,7 @@ const Projects: React.FC = () => {
     },
     {
       title: 'Black Rose - Community Esports Platform',
-      duration: 'Ongoing',
+      duration: 'July 2026 - Present',
       type: 'Voluntary Community Work',
       category: 'Full Stack Development',
       description:
@@ -146,7 +146,7 @@ const Projects: React.FC = () => {
       },
     },
     {
-      title: 'E-Portfolio Website',
+      title: 'My Personal E-Portfolio Website',
       duration: 'June 2025 - Present',
       type: 'Personal Project',
       category: 'Frontend Development',
@@ -168,6 +168,37 @@ const Projects: React.FC = () => {
         duration: 'Ongoing',
         team: 'Individual',
         status: 'Ongoing',
+      },
+    },
+    {
+      title: 'Personalized E-Portfolio Website',
+      duration: 'August 2026',
+      type: 'Client Project',
+      category: 'Full Stack Development',
+      description:
+        'A personalized portfolio website developed in collaboration with the client to translate their vision, preferred design direction, and content requirements into a modern digital portfolio.',
+      features: [
+        'Client-driven design and content planning',
+        'Architecture project showcases with detailed presentations',
+        'Graphics portfolio with integrated PDF viewer',
+        'Video portfolio for long-form and short-form content',
+        'Contact form for freelance and full-time opportunities',
+        'Responsive design with modern visual interactions',
+      ],
+      technologies: [
+        'React 19',
+        'TanStack Start',
+        'TanStack Router',
+        'TypeScript',
+        'Tailwind CSS',
+        'EmailJS',
+      ],
+      liveUrl: 'https://habagat-jervin-eport.vercel.app/',
+      githubUrl: undefined,
+      stats: {
+        duration: 'Ongoing',
+        team: 'Individual',
+        status: 'Active Development',
       },
     },
   ];
