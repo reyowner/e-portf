@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
     {
       icon: CheckCircle,
       label: 'Status',
-      value: 'Available for freelance and full-time work',
+      value: 'Available for freelance, part-time, and full-time work',
       color: 'text-green-400',
       bgColor: 'bg-green-600/10',
     },

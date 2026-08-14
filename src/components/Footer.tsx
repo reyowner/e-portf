@@ -135,7 +135,7 @@ const Footer = () => {
                 <div className="pt-4">
                   <div className="inline-flex items-center px-3 py-1 rounded-full bg-orange-900/30 border border-orange-800/50 text-orange-300 text-sm">
                     <div className="w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></div>
-                    Available for freelance and full-time opportunities
+                    Available for freelance, part-time, and full-time opportunities
                   </div>
                 </div>
               </div>

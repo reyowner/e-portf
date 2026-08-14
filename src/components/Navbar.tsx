@@ -247,7 +247,7 @@ const Navbar = () => {
                   transition={{ delay: 0.4 }}
                 >
                   <p className="text-sm text-gray-400 text-center">
-                    Available for freelance and full-time work
+                    Available for freelance, part-time, and full-time work
                   </p>
                   <div className="flex justify-center mt-2">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>

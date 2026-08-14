@@ -283,7 +283,7 @@ const Hero: React.FC = () => {
                   />
                   <span className="hidden sm:inline">{personalInfo.status}</span>
                   <span className="sm:hidden">
-                    Available for freelance and full-time opportunities
+                    Available for freelance, part-time, and full-time opportunities
                   </span>
                   <Sparkles className="w-3 h-3 ml-2 text-yellow-400" />
                 </motion.div>
@@ -381,8 +381,7 @@ const Hero: React.FC = () => {
                   transition={{ delay: 1.2 }}
                 >
                   BS Information Technology graduate focused on building polished, user-centered web
-                  experiences. I&apos;m currently {personalInfo.experience} and open to freelance
-                  projects, part-time roles, and full-time opportunities.
+                  experiences. {personalInfo.experience}.
                 </motion.p>
 
                 {/* Enhanced Quick Info Cards */}
