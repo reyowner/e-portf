@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
     {
       icon: CheckCircle,
       label: 'Status',
-      value: 'Employed (Open to opportunities)',
+      value: 'Available for freelance, part-time, and full-time work',
       color: 'text-green-400',
       bgColor: 'bg-green-600/10',
     },
@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
     {
       icon: MessageSquare,
       label: 'Open to',
-      value: 'New opportunities while employed',
+      value: 'Freelance, part-time, and full-time roles',
       color: 'text-green-600',
       bgColor: 'bg-green-600/10',
     },
@@ -215,8 +215,8 @@ const Contact: React.FC = () => {
             Let's Connect
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-4 sm:px-0">
-            Currently employed as Junior Fullstack Engineer at Oaktree Innovations. Open to new
-            opportunities while employed.
+            I&apos;m currently available for freelance projects, part-time work, and full-time
+            roles. Let&apos;s build something meaningful together.
           </p>
         </motion.div>
 

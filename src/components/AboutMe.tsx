@@ -28,7 +28,7 @@ const About = () => {
     {
       icon: User,
       label: 'Status',
-      value: 'Currently employed (Not Available)',
+      value: 'Open to freelance, part-time, and full-time work',
       color: 'text-purple-500',
     },
   ];
@@ -70,8 +70,8 @@ const About = () => {
             About Me
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-            BS Information Technology Graduate passionate about creating innovative solutions with
-            modern technologies.
+            Full-stack developer focused on building thoughtful digital experiences for businesses,
+            founders, and personal brands.
           </p>
         </div>
 
@@ -109,24 +109,21 @@ const About = () => {
                   </h3>
                   <div className="space-y-4 sm:space-y-6 text-gray-400 leading-relaxed text-sm sm:text-base text-justify">
                     <p>
-                      I'm a BS Information Technology graduate from TIP Manila who turned my passion
-                      for tech into a career. Started as an intern at Oaktree Innovations, working
-                      on real projects like the PREDIKTA Marketing App for Netopia AI. Got promoted
-                      to Junior Fullstack Engineer where I now handle frontend UI/UX, UAT feedback,
-                      and collaborate directly with clients.
+                      I&apos;m a BS Information Technology graduate from TIP Manila who grew from
+                      hands-on project work into a developer mindset built around solving real
+                      problems. My work has included frontend implementation, product collaboration,
+                      and building tools that connect user needs with clean, modern interfaces.
                     </p>
                     <p>
-                      Beyond work, I helped build the Black Rose esports platform for Alodia
-                      Gosiengfiao's community. It was a team effort with 2-3 developers, where I led
-                      most of the development while getting support from other team members and the
-                      community. The platform lets gamers create profiles, form teams, and join
-                      tournaments.
+                      I enjoy turning ideas into usable, polished experiences—whether that means a
+                      streamlined business website, a portfolio for a personal brand, or a product
+                      that helps people do their work better. I&apos;m especially interested in
+                      projects where thoughtful design and reliable engineering go together.
                     </p>
                     <p>
-                      I love solving problems and learning new things. Whether it's adapting to new
-                      technologies or working with a team, I'm always up for the challenge.
-                      Currently focused on growing as a developer while delivering quality work at
-                      Oaktree.
+                      Right now, I&apos;m open to freelance work, part-time roles, and full-time
+                      opportunities where I can contribute, learn, and help build something that
+                      genuinely makes an impact.
                     </p>
                   </div>
                 </div>
