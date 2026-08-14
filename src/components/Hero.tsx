@@ -25,10 +25,10 @@ const Hero: React.FC = () => {
   const roles = useMemo(
     () => [
       'Full Stack Developer',
-      'BS Information Technology',
+      'Freelance Web Developer',
+      'UI/UX Focused',
       'Problem Solver',
-      'Adaptable',
-      'Fast Learner',
+      'Open to Work',
     ],
     []
   );
@@ -39,11 +39,11 @@ const Hero: React.FC = () => {
   const personalInfo = {
     name: 'Renato Reoner Jr.',
     nickname: 'Ren',
-    title: 'Fullstack Engineer',
+    title: 'Fullstack Developer',
     location: 'Taguig, Metro Manila, Philippines',
-    experience: 'Fullstack Engineer since June 2025',
-    company: 'Oaktree Innovations',
-    status: 'Not Available',
+    experience: 'Available for freelance, part-time, and full-time work',
+    company: 'Open to opportunities',
+    status: 'Open to Work',
     profileImage: {
       src: '/profile-konato.jpg',
       alt: 'DP',
@@ -283,7 +283,7 @@ const Hero: React.FC = () => {
                   />
                   <span className="hidden sm:inline">{personalInfo.status}</span>
                   <span className="sm:hidden">
-                    Currently employed as Fullstack Engineer at Oaktree Innovations (Not Available)
+                    Available for freelance and full-time opportunities
                   </span>
                   <Sparkles className="w-3 h-3 ml-2 text-yellow-400" />
                 </motion.div>
@@ -380,9 +380,9 @@ const Hero: React.FC = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.2 }}
                 >
-                  Recent BS IT Graduate working as {personalInfo.experience} at{' '}
-                  {personalInfo.company}. Passionate about creating user-centered solutions with
-                  modern web technologies.
+                  BS Information Technology graduate focused on building polished, user-centered web
+                  experiences. I&apos;m currently {personalInfo.experience} and open to freelance
+                  projects, part-time roles, and full-time opportunities.
                 </motion.p>
 
                 {/* Enhanced Quick Info Cards */}
@@ -408,9 +408,7 @@ const Hero: React.FC = () => {
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
                     <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-orange-400 flex-shrink-0" />
-                    <span className="text-gray-300 text-xs sm:text-sm">
-                      Employed (Not Available)
-                    </span>
+                    <span className="text-gray-300 text-xs sm:text-sm">Available now</span>
                   </motion.div>
                 </motion.div>
 
@@ -537,7 +535,7 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 2.6 }}
                       >
-                        status: <span className="text-green-400">"Employed (Not Available)"</span>,
+                        status: <span className="text-green-400">"Open to Work"</span>,
                       </motion.div>
                       <motion.div
                         className="ml-4 text-gray-300"
@@ -577,7 +575,7 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 4.2 }}
                       >
-                        available: <span className="text-blue-400">false</span>
+                        available: <span className="text-blue-400">true</span>
                       </motion.div>
                       <motion.div
                         className="text-blue-400"

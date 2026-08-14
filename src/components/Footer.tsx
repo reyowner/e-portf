@@ -1,46 +1,46 @@
-"use client"
-import { Github, Linkedin, Mail, Heart, ArrowUp, Code, Coffee } from "lucide-react"
+'use client';
+import { Github, Linkedin, Mail, Heart, ArrowUp, Code, Coffee } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     {
       icon: Github,
-      href: "https://github.com/reyowner",
-      label: "GitHub",
-      color: "hover:text-white",
+      href: 'https://github.com/reyowner',
+      label: 'GitHub',
+      color: 'hover:text-white',
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/rreonerjr",
-      label: "LinkedIn",
-      color: "hover:text-blue-600",
+      href: 'https://linkedin.com/in/rreonerjr',
+      label: 'LinkedIn',
+      color: 'hover:text-blue-600',
     },
     {
       icon: Mail,
-      href: "mailto:domasigreoner@gmail.com",
-      label: "Email",
-      color: "hover:text-red-500",
+      href: 'mailto:domasigreoner@gmail.com',
+      label: 'Email',
+      color: 'hover:text-red-500',
     },
-  ]
+  ];
 
   const quickLinks = [
-    { href: "#about", label: "About" },
-    { href: "#projects", label: "Projects" },
-    { href: "#skills", label: "Skills" },
-    { href: "#experience", label: "Experience" },
-    { href: "#contact", label: "Contact" },
-  ]
+    { href: '#about', label: 'About' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#contact', label: 'Contact' },
+  ];
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleNavClick = (href: string) => {
-    const element = document.getElementById(href.replace("#", ""))
-    element?.scrollIntoView({ behavior: "smooth" })
-  }
+    const element = document.getElementById(href.replace('#', ''));
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
@@ -61,8 +61,8 @@ const Footer = () => {
                   Renato Reoner Jr.
                 </h3>
                 <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-md">
-                  BS Information Technology Graduate passionate about creating innovative solutions with modern
-                  technologies.
+                  Full-stack developer building polished digital experiences for businesses,
+                  founders, and personal brands.
                 </p>
               </div>
 
@@ -78,8 +78,8 @@ const Footer = () => {
                   <a
                     key={index}
                     href={social.href}
-                    target={social.href.startsWith("http") ? "_blank" : undefined}
-                    rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    target={social.href.startsWith('http') ? '_blank' : undefined}
+                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className={`group p-2.5 sm:p-3 rounded-2xl bg-gray-800/50 border border-gray-700/50 hover:border-gray-600 transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${social.color}`}
                     aria-label={social.label}
                   >
@@ -135,7 +135,7 @@ const Footer = () => {
                 <div className="pt-4">
                   <div className="inline-flex items-center px-3 py-1 rounded-full bg-orange-900/30 border border-orange-800/50 text-orange-300 text-sm">
                     <div className="w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></div>
-                    Currently employed at Oaktree Innovations
+                    Available for freelance and full-time opportunities
                   </div>
                 </div>
               </div>
@@ -167,7 +167,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
