@@ -115,6 +115,13 @@ const About = () => {
                       and building tools that connect user needs with clean, modern interfaces.
                     </p>
                     <p>
+                      One of my notable projects was helping build the Black Rose esports platform
+                      for Alodia Gosiengfiao's community. Working as part of a team of 2-3
+                      developers, I took the lead on most of the development while collaborating
+                      with and receiving support from my teammates and the community. The platform
+                      allows gamers to create profiles, form teams, and participate in tournaments.
+                    </p>
+                    <p>
                       I enjoy turning ideas into usable, polished experiences—whether that means a
                       streamlined business website, a portfolio for a personal brand, or a product
                       that helps people do their work better. I&apos;m especially interested in
