@@ -51,45 +51,22 @@ const Projects: React.FC = () => {
     //   },
     // },
     {
-      title: 'PREDIKTA Marketing App - Frontend Development',
-      duration: 'March 2025 - May 2025',
+      title: 'PREDIKTA Marketing Platform — AI-Powered Campaign Intelligence',
+      duration: 'March 2025 - August 2026',
       company: 'Netopia AI (via Oaktree Innovations)',
-      role: 'Full Stack Software Engineer Intern',
+      role: 'Intern → Junior Fullstack Engineer',
       category: 'Professional Work',
       description:
-        'Contributed to the development of PREDIKTA Marketing App as part of the Oaktree Innovations internship program, working directly with client requirements and professional development standards.',
+        'Sole frontend developer on PREDIKTA, a comprehensive AI-powered marketing intelligence platform for Netopia AI. Owns the entire frontend — rebranding the platform from Figma designs to production, integrating FastAPI backend services, triaging UAT feedback from client stakeholders, and shipping features against a client-driven Gantt chart timeline. Ads scoring higher on Predikta achieve 3.4× higher CTR and 2.6× lower CPC in real-world campaigns.',
       features: [
-        'Implemented UI components from Figma designs',
-        'Integrated frontend components with backend APIs',
-        'Collaborated in agile development environment',
-        'Participated in code reviews and team meetings',
-        'Ensured responsive design across devices',
-      ],
-      technologies: ['React.js', 'Next.js', 'Figma to Code', 'API Integration', 'Agile/Scrum'],
-      professional: true,
-      stats: {
-        duration: '3 months',
-        team: '3 developers',
-        status: 'Completed',
-      },
-    },
-    {
-      title: 'PREDIKTA Marketing Platform - AI-Powered Campaign Intelligence',
-      duration: 'March 2025 - Present',
-      company: 'Netopia AI (via Oaktree Innovations)',
-      role: 'Junior Fullstack Engineer',
-      category: 'Professional Work',
-      description:
-        'A comprehensive AI-powered marketing intelligence platform that enables brands to test and optimize advertising campaigns before launch. Predikta uses behavioral science and machine learning to predict ad performance, benchmark creative effectiveness, and provide data-driven insights. The platform has demonstrated validated results with ads scoring higher on Predikta achieving 3.4x higher CTR and 2.6x lower CPC in real-world campaigns.',
-      features: [
-        'AI-powered campaign simulation and ad performance prediction',
-        'Audience creation with 88K+ Filipino consumer dataset filtering',
-        'Creative testing and refinement with benchmarked scoring system',
-        'Real-time campaign monitoring and social media tracking',
-        'Behavioral science insights for purchase intent optimization',
-        'Multi-industry support with expanded platform monitoring',
+        'Sole frontend developer — fully rebranded the platform from Figma designs to production',
+        'Audience creation with 88K+ Filipino consumer dataset and advanced filtering',
+        'AI-powered campaign simulation, ad performance prediction, and benchmarked scoring',
+        'Creative testing and refinement with behavioral science purchase intent insights',
+        'Real-time campaign monitoring and social media tracking dashboard',
+        'Program-based campaign organization and full workflow management',
         'Admin console for organization and user management',
-        'Program-based campaign organization and workflow management',
+        'Direct UAT triage with Netopia AI stakeholders against Gantt chart delivery timelines',
       ],
       technologies: [
         'React 19',
@@ -115,12 +92,12 @@ const Projects: React.FC = () => {
       },
     },
     {
-      title: 'Black Rose - Community Esports Platform',
+      title: 'Black Rose — Gaming & Esports Community Platform',
       duration: 'July 2026 - Present',
       type: 'Voluntary Community Work',
       category: 'Full Stack Development',
       description:
-        "A comprehensive community esports platform for Alodia Gosiengfiao's Black Rose community. Built as voluntary work to support the community's gaming initiatives, the platform enables Discord members to create profiles, form teams, register for tournaments, and follow live brackets. Operators manage the full event lifecycle through an admin console with tournament creation, entry approval, seeding, scoring, and bracket publishing capabilities.",
+        'Built Black Rose (blackrose.asia), a gaming and esports community platform led by Alodia Gosiengfiao, end-to-end. Features user profiles with Discord account verification and ROSE role-gated access, team and roster management for tournament participation, game discovery, and a Hall of Champions tracking tournament winners. Includes an admin console with tournament CRUD, Single Elimination, Swiss, and Double Elimination bracket formats, game management, and audit logging — supporting an officially partnered VALORANT / Riot Games event.',
       features: [
         'Discord OAuth authentication with member role verification',
         'Member profiles and team management system',
@@ -133,9 +110,9 @@ const Projects: React.FC = () => {
       technologies: [
         'React 19',
         'TanStack Start',
-        'Supabase',
-        'Tailwind CSS',
+        'Supabase (SQL + RLS)',
         'TypeScript',
+        'Tailwind CSS',
         'Capacitor',
       ],
       liveUrl: 'https://blackrose.asia',
@@ -174,7 +151,7 @@ const Projects: React.FC = () => {
       title: 'Personalized E-Portfolio Website',
       duration: 'August 2026',
       type: 'Client Project',
-      category: 'Full Stack Development',
+      category: 'Frontend Development',
       description:
         'A personalized portfolio website developed in collaboration with the client to translate their vision, preferred design direction, and content requirements into a modern digital portfolio.',
       features: [
