@@ -90,22 +90,21 @@ const Experience: React.FC = () => {
     {
       title: 'Junior Fullstack Engineer',
       company: 'Oaktree Innovations',
-      duration: 'June 2025 - Recent',
+      duration: 'June 2025 - August 2026',
       location: 'Remote',
-      type: 'Previous Role',
-      status: 'Completed',
+      type: 'Full-time',
+      status: 'Current',
       category: 'Professional Experience',
       description:
-        'Worked in a fast-paced product environment, contributing to frontend UI/UX implementation, client feedback cycles, and feature delivery for a marketing intelligence platform. This experience strengthened my full-stack development workflow and collaborative problem-solving skills.',
+        "Served as the sole frontend developer for PREDIKTA, completely rebranding the platform based on Netopia AI's UI/UX team designs and translating Figma designs into production-ready components, interfaces, and pages. Integrated REST APIs and backend services for each feature, connecting the React/Next.js frontend with FastAPI while independently testing integrations and resolving issues. Works directly with client stakeholders — translating requirements into functional features, triaging UAT feedback, and shipping fixes against a client-driven Gantt chart timeline — in a 3–5 person agile team. Promoted from intern to full-time based on internship performance.",
       achievements: [
-        'Implement frontend UI/UX features, ensuring alignment with Figma designs and client requirements',
-        'Handle User Acceptance Testing (UAT) feedback from Netopia AI, implementing fixes and refinements',
-        'Translate client needs and requirements into functional application features',
-        'Collaborate in agile development environment following client-provided Gantt chart timelines',
-        'Develop complex features including audience creation, campaign management, and testing/refinement workflows',
-        'Integrate frontend components with backend services and AI-powered prediction engines',
-        'Participate in team meetings and continuous improvement initiatives',
-        'Maintain responsive design standards across all application features',
+        "Completely rebranded the platform based on Netopia AI's UI/UX team designs",
+        'Translated Figma designs into production-ready React/Next.js components, interfaces, and pages',
+        'Integrated REST APIs and FastAPI backend services for each feature, independently testing integrations and resolving issues',
+        'Worked directly with client stakeholders to translate requirements into functional features',
+        'Triaged UAT feedback from Netopia AI and shipped fixes against a client-driven Gantt chart timeline',
+        'Collaborated in a 3-5 person agile team across the full product development lifecycle',
+        'Promoted from intern to full-time Junior Fullstack Engineer based on internship performance',
       ],
       technologies: [
         'React 19',
@@ -119,15 +118,15 @@ const Experience: React.FC = () => {
         'Python',
         'MongoDB',
         'Figma to Code',
+        'REST APIs',
         'Git',
-        'Agile Development',
-        'Client Communication',
+        'Agile / Gantt',
       ],
       highlights: [
-        'Promoted from intern to full-time Junior Fullstack Engineer',
-        'Frontend UI/UX development for production marketing platform',
-        'Direct client collaboration with Netopia AI',
-        'Feature development from design to deployment',
+        'Promoted from intern to full-time',
+        'Sole frontend dev on client platform',
+        'Direct stakeholder collaboration',
+        'UAT triage & delivery',
       ],
     },
     {
@@ -311,6 +310,8 @@ const Experience: React.FC = () => {
     switch (type) {
       case 'Internship':
         return 'bg-blue-900/20 text-blue-300 border-blue-800/30';
+      case 'Full-time':
+        return 'bg-green-900/20 text-green-300 border-green-800/30';
       case 'Education':
         return 'bg-purple-900/30 text-purple-300 border-purple-800';
       case 'Work Immersion':
