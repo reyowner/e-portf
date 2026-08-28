@@ -30,6 +30,7 @@ const Footer = () => {
     { href: '#projects', label: 'Projects' },
     { href: '#skills', label: 'Skills' },
     { href: '#experience', label: 'Experience' },
+    { href: '/resume', label: 'Resume', isExternal: true },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -37,9 +38,13 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNavClick = (href: string) => {
-    const element = document.getElementById(href.replace('#', ''));
-    element?.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (href: string, isExternal = false) => {
+    if (isExternal) {
+      window.location.href = href;
+    } else {
+      const element = document.getElementById(href.replace('#', ''));
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -96,7 +101,7 @@ const Footer = () => {
                 {quickLinks.map((link, index) => (
                   <li key={index}>
                     <button
-                      onClick={() => handleNavClick(link.href)}
+                      onClick={() => handleNavClick(link.href, link.isExternal)}
                       className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
                     >
                       {link.label}

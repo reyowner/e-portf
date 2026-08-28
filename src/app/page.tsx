@@ -1,13 +1,43 @@
-"use client"
+import type { Metadata } from 'next';
+import Hero from '../components/Hero';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import About from '../components/AboutMe';
+import Projects from '../components/Projects';
+import Skills from '../components/Skills';
+import Experience from '../components/Experience';
+import Contact from '../components/Contact';
 
-import Hero from "../components/Hero"
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-import About from "../components/AboutMe"
-import Projects from "../components/Projects"
-import Skills from "../components/Skills"
-import Experience from "../components/Experience"
-import Contact from "../components/Contact"
+export const metadata: Metadata = {
+  title: 'Renato Reoner Jr. | Fullstack Developer',
+  description:
+    'Fullstack Developer specializing in React, Next.js, TypeScript, and modern web technologies. BS Information Technology graduate with professional experience building AI-powered marketing platforms and gaming community platforms.',
+  alternates: {
+    canonical: 'https://e-portfolio-reyowners-projects.vercel.app',
+  },
+  openGraph: {
+    title: 'Renato Reoner Jr. | Fullstack Developer',
+    description:
+      'Fullstack Developer specializing in React, Next.js, TypeScript, and modern web technologies. BS Information Technology graduate with professional experience building AI-powered marketing platforms and gaming community platforms.',
+    type: 'website',
+    url: 'https://e-portfolio-reyowners-projects.vercel.app',
+    images: [
+      {
+        url: '/profile-konato.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Renato Reoner Jr.',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Renato Reoner Jr. | Fullstack Developer',
+    description:
+      'Fullstack Developer specializing in React, Next.js, TypeScript, and modern web technologies. BS Information Technology graduate with professional experience building AI-powered marketing platforms and gaming community platforms.',
+    images: ['/profile-konato.jpg'],
+  },
+};
 
 export default function Home() {
   return (
@@ -23,5 +53,5 @@ export default function Home() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
