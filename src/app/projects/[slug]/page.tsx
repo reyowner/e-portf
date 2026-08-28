@@ -38,20 +38,11 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       description: project.seoDescription,
       type: 'website',
       url: `https://e-portfolio-reyowners-projects.vercel.app/projects/${project.slug}`,
-      images: [
-        {
-          url: '/profile-konato.jpg',
-          width: 1200,
-          height: 630,
-          alt: project.title,
-        },
-      ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: 'summary',
       title: project.seoTitle,
       description: project.seoDescription,
-      images: ['/profile-konato.jpg'],
     },
   };
 }

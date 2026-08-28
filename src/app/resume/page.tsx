@@ -29,21 +29,12 @@ export const metadata: Metadata = {
       'Professional resume of Renato Reoner Jr., a Fullstack Developer with experience in React, Next.js, TypeScript, and modern web technologies.',
     type: 'website',
     url: 'https://e-portfolio-reyowners-projects.vercel.app/resume',
-    images: [
-      {
-        url: '/profile-konato.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Renato Reoner Jr.',
-      },
-    ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'Resume - Renato Reoner Jr. | Fullstack Developer',
     description:
       'Professional resume of Renato Reoner Jr., a Fullstack Developer with experience in React, Next.js, TypeScript, and modern web technologies.',
-    images: ['/profile-konato.jpg'],
   },
 };
 
