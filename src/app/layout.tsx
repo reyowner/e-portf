@@ -26,21 +26,12 @@ export const metadata: Metadata = {
       'Fullstack Developer specializing in React, Next.js, TypeScript, and modern web technologies.',
     type: 'website',
     siteName: 'Renato Reoner Jr.',
-    images: [
-      {
-        url: '/profile-konato.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Renato Reoner Jr.',
-      },
-    ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'Renato Reoner Jr. | Fullstack Developer',
     description:
       'Fullstack Developer specializing in React, Next.js, TypeScript, and modern web technologies.',
-    images: ['/profile-konato.jpg'],
   },
   robots: {
     index: true,
