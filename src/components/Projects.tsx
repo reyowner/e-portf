@@ -2,10 +2,12 @@
 
 import type React from 'react';
 import { useState, useEffect } from 'react';
-import { ExternalLink, Github, Calendar, Users, Code, Zap } from 'lucide-react';
+import Link from 'next/link';
+import { ExternalLink, Github, Calendar, Users, Code, Zap, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import LoadingSpinner from './LoadingSpinner';
 import SkeletonLoader from './SkeletonLoader';
+import { projects } from '../lib/projects';
 
 const Projects: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,169 +18,7 @@ const Projects: React.FC = () => {
   const [mouseEnd, setMouseEnd] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
-  const allProjects = [
-    // {
-    //   title: "TaskFlow - Full Stack Task Management Web App",
-    //   duration: "March 2025 - April 2025",
-    //   type: "Oaktree Innovations Curriculum Final Project",
-    //   category: "Full Stack Development",
-    //   description:
-    //     "A comprehensive task management web application developed as the capstone project for Oaktree Innovations' development curriculum. Demonstrates full-stack development capabilities with modern web technologies and best practices.",
-    //   features: [
-    //     "Complete CRUD Operations for task management",
-    //     "User Authentication with secure login",
-    //     "Session Handling across browser sessions",
-    //     "Responsive Design for all devices",
-    //     "Modern UI/UX with clean interface",
-    //     "RESTful API endpoints",
-    //   ],
-    //   technologies: [
-    //     "React.js",
-    //     "Next.js",
-    //     "Python",
-    //     "FastAPI",
-    //     "PostgreSQL",
-    //     "JWT",
-    //     "Git",
-    //   ],
-    //   liveUrl: "https://task-flow-xxm5.onrender.com",
-    //   githubUrl: "https://github.com/reyowner/TaskFlow",
-    //   featured: true,
-    //   stats: {
-    //     duration: "2 months",
-    //     team: "Individual",
-    //     status: "Live",
-    //   },
-    // },
-    {
-      title: 'PREDIKTA Marketing Platform — AI-Powered Campaign Intelligence',
-      duration: 'March 2025 - August 2026',
-      company: 'Netopia AI (via Oaktree Innovations)',
-      role: 'Intern → Junior Fullstack Engineer',
-      category: 'Professional Work',
-      description:
-        'Sole frontend developer on PREDIKTA, a comprehensive AI-powered marketing intelligence platform for Netopia AI. Owns the entire frontend — rebranding the platform from Figma designs to production, integrating FastAPI backend services, triaging UAT feedback from client stakeholders, and shipping features against a client-driven Gantt chart timeline. Ads scoring higher on Predikta achieve 3.4× higher CTR and 2.6× lower CPC in real-world campaigns.',
-      features: [
-        'Sole frontend developer — fully rebranded the platform from Figma designs to production',
-        'Audience creation with 88K+ Filipino consumer dataset and advanced filtering',
-        'AI-powered campaign simulation, ad performance prediction, and benchmarked scoring',
-        'Creative testing and refinement with behavioral science purchase intent insights',
-        'Real-time campaign monitoring and social media tracking dashboard',
-        'Program-based campaign organization and full workflow management',
-        'Admin console for organization and user management',
-        'Direct UAT triage with Netopia AI stakeholders against Gantt chart delivery timelines',
-      ],
-      technologies: [
-        'React 19',
-        'Next.js 16',
-        'TypeScript',
-        'Tailwind CSS',
-        'Radix UI',
-        'TanStack Query',
-        'Zustand',
-        'Python 3.12',
-        'FastAPI',
-        'MongoDB',
-        'AWS SQS/S3',
-        'Google Cloud Pub/Sub/Storage',
-        'Firebase',
-        'Docker',
-      ],
-      professional: true,
-      stats: {
-        duration: '12+ months',
-        team: '3-5 developers',
-        status: 'Active Development',
-      },
-    },
-    {
-      title: 'Black Rose — Gaming & Esports Community Platform',
-      duration: 'July 2026 - Present',
-      type: 'Voluntary Community Work',
-      category: 'Full Stack Development',
-      description:
-        'Built Black Rose (blackrose.asia), a gaming and esports community platform led by Alodia Gosiengfiao, end-to-end. Features user profiles with Discord account verification and ROSE role-gated access, team and roster management for tournament participation, game discovery, and a Hall of Champions tracking tournament winners. Includes an admin console with tournament CRUD, Single Elimination, Swiss, and Double Elimination bracket formats, game management, and audit logging — supporting an officially partnered VALORANT / Riot Games event.',
-      features: [
-        'Discord OAuth authentication with member role verification',
-        'Member profiles and team management system',
-        'Tournament registration with multiple bracket formats',
-        'Live bracket visualization and real-time updates',
-        'Admin console for tournament lifecycle management',
-        'In-app notifications and community features',
-        'Mobile-ready with cross-platform support',
-      ],
-      technologies: [
-        'React 19',
-        'TanStack Start',
-        'Supabase (SQL + RLS)',
-        'TypeScript',
-        'Tailwind CSS',
-        'Capacitor',
-      ],
-      liveUrl: 'https://blackrose.asia',
-      stats: {
-        duration: 'Ongoing',
-        team: 'Team',
-        status: 'Active Development',
-      },
-    },
-    {
-      title: 'My Personal E-Portfolio Website',
-      duration: 'June 2025 - Present',
-      type: 'Personal Project',
-      category: 'Frontend Development',
-      description:
-        "A modern, responsive portfolio website built with Next.js and React that you're currently viewing. Features dynamic animations, contact form integration, pagination, and optimized performance. Showcases my projects, skills, and professional journey with an emphasis on user experience and modern design principles.",
-      features: [
-        'Responsive design with Tailwind CSS',
-        'Dynamic typing animations and interactive elements',
-        'Contact form with EmailJS integration',
-        'Smooth scrolling navigation and pagination',
-        'SEO optimized and performance focused',
-        'Modern UI/UX with glassmorphism effects',
-      ],
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'EmailJS'],
-      liveUrl: '#',
-      githubUrl: undefined,
-
-      stats: {
-        duration: 'Ongoing',
-        team: 'Individual',
-        status: 'Ongoing',
-      },
-    },
-    {
-      title: 'Personalized E-Portfolio Website',
-      duration: 'August 2026',
-      type: 'Client Project',
-      category: 'Frontend Development',
-      description:
-        'A personalized portfolio website developed in collaboration with the client to translate their vision, preferred design direction, and content requirements into a modern digital portfolio.',
-      features: [
-        'Client-driven design and content planning',
-        'Architecture project showcases with detailed presentations',
-        'Graphics portfolio with integrated PDF viewer',
-        'Video portfolio for long-form and short-form content',
-        'Contact form for freelance and full-time opportunities',
-        'Responsive design with modern visual interactions',
-      ],
-      technologies: [
-        'React 19',
-        'TanStack Start',
-        'TanStack Router',
-        'TypeScript',
-        'Tailwind CSS',
-        'EmailJS',
-      ],
-      liveUrl: 'https://habagat-jervin-eport.vercel.app/',
-      githubUrl: undefined,
-      stats: {
-        duration: 'Ongoing',
-        team: 'Individual',
-        status: 'Active Development',
-      },
-    },
-  ];
+  const allProjects = projects;
 
   const totalItems = allProjects.length;
 
@@ -506,16 +346,25 @@ const Projects: React.FC = () => {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.5, duration: 0.3 }}
                         >
-                          {project.liveUrl && (
+                          <motion.div whileTap={{ scale: 0.95 }}>
+                            <Link
+                              href={`/projects/${project.slug}`}
+                              className="text-xs group inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all duration-300"
+                            >
+                              <ArrowRight className="mr-2 h-4 w-4" />
+                              View Details
+                            </Link>
+                          </motion.div>
+                          {project.liveUrl && project.liveUrl !== '#' && (
                             <motion.a
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-xs group inline-flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all duration-300"
+                              className="text-xs group inline-flex items-center px-4 py-2 rounded-xl border-2 border-gray-700 hover:border-blue-600 hover:bg-blue-900/20 text-gray-300 hover:text-blue-400 font-semibold transition-all duration-300"
                               whileTap={{ scale: 0.95 }}
                             >
                               <ExternalLink className="mr-2 h-4 w-4" />
-                              {project.liveUrl === '#' ? "You're Here!" : 'Live Demo'}
+                              Live Demo
                             </motion.a>
                           )}
                           {project.githubUrl && (
@@ -695,29 +544,36 @@ const Projects: React.FC = () => {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.5, duration: 0.3 }}
                         >
-                          {project.liveUrl && (
+                          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                            <Link
+                              href={`/projects/${project.slug}`}
+                              className="text-xs sm:text-sm group inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 lg:px-5 lg:py-3 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all duration-300 hover:shadow-xl"
+                            >
+                              <ArrowRight className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 group-hover:rotate-12 transition-transform duration-300" />
+                              View Details
+                            </Link>
+                          </motion.div>
+                          {project.liveUrl && project.liveUrl !== '#' && (
                             <motion.a
                               href={project.liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-xs sm:text-sm group inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 lg:px-5 lg:py-3 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                              className="text-xs sm:text-sm group inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 lg:px-5 lg:py-3 rounded-xl sm:rounded-2xl border-2 border-gray-700 hover:border-blue-600 hover:bg-blue-900/20 text-gray-300 hover:text-blue-400 font-semibold transition-all duration-300 transform hover:scale-105"
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                               onClick={(e) => {
-                                if (project.liveUrl !== '#') {
-                                  // Show loading state for external links
-                                  const button = e.currentTarget;
-                                  const originalContent = button.innerHTML;
-                                  button.innerHTML =
-                                    '<div class="flex items-center"><div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>Loading...</div>';
-                                  setTimeout(() => {
-                                    button.innerHTML = originalContent;
-                                  }, 2000);
-                                }
+                                // Show loading state for external links
+                                const button = e.currentTarget;
+                                const originalContent = button.innerHTML;
+                                button.innerHTML =
+                                  '<div class="flex items-center"><div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>Loading...</div>';
+                                setTimeout(() => {
+                                  button.innerHTML = originalContent;
+                                }, 2000);
                               }}
                             >
                               <ExternalLink className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 group-hover:rotate-12 transition-transform duration-300" />
-                              {project.liveUrl === '#' ? "You're Here!" : 'Live Demo'}
+                              Live Demo
                             </motion.a>
                           )}
                           {project.githubUrl && (

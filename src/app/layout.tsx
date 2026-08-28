@@ -1,20 +1,58 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "Renato Reoner Jr. | e-Portfolio",
-  description: "Explore the e-Portfolio of Renato Reoner Jr. — BS Information Technology, projects, skills, and contact information.",
+  metadataBase: new URL('https://e-portfolio-reyowners-projects.vercel.app'),
+  title: {
+    default: 'Renato Reoner Jr. | Fullstack Developer',
+    template: '%s | Renato Reoner Jr.',
+  },
+  description:
+    'Fullstack Developer specializing in React, Next.js, TypeScript, and modern web technologies.',
+  openGraph: {
+    title: 'Renato Reoner Jr. | Fullstack Developer',
+    description:
+      'Fullstack Developer specializing in React, Next.js, TypeScript, and modern web technologies.',
+    type: 'website',
+    siteName: 'Renato Reoner Jr.',
+    images: [
+      {
+        url: '/profile-konato.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Renato Reoner Jr.',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Renato Reoner Jr. | Fullstack Developer',
+    description:
+      'Fullstack Developer specializing in React, Next.js, TypeScript, and modern web technologies.',
+    images: ['/profile-konato.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -24,11 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
   );
 }
